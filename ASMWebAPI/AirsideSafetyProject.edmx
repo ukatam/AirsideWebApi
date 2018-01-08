@@ -1,0 +1,2804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Airside_Safety_ProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AirsideHOTSpecifics">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Specifics" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="App_Group_Master">
+          <Key>
+            <PropertyRef Name="AGM_I" />
+          </Key>
+          <Property Name="AGM_I" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AGM_GROUP_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="AGM_DESC" Type="varchar" MaxLength="255" />
+          <Property Name="AGM_ISACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="ApronInspectionChecklist">
+          <Key>
+            <PropertyRef Name="AIC_ID" />
+          </Key>
+          <Property Name="AIC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InspectionDate" Type="datetime" />
+          <Property Name="Inspection_Time" Type="time" Precision="7" />
+          <Property Name="Stand" Type="nvarchar" MaxLength="250" />
+          <Property Name="Surface_Condition" Type="nvarchar" MaxLength="50" />
+          <Property Name="Markings" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cleaning" Type="nvarchar" MaxLength="50" />
+          <Property Name="Serviceability" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActionTaken" Type="nvarchar(max)" />
+          <Property Name="OfficierName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Other_Observations" Type="nvarchar(max)" />
+          <Property Name="ApprovalStatus" Type="bit" />
+          <Property Name="ApprovedBy" Type="nvarchar" MaxLength="250" />
+          <Property Name="ApprovalDateTime" Type="datetime" />
+          <Property Name="DutyManagerRemarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOTWorkSafetyChecklist">
+          <Key>
+            <PropertyRef Name="HOT_ID" />
+          </Key>
+          <Property Name="HOT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_ID" Type="nchar" MaxLength="10" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="PermitNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Agency" Type="nvarchar" MaxLength="200" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="200" />
+          <Property Name="OtherObservations" Type="nvarchar(max)" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="InspectorName" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Createdon" Type="datetime" />
+          <Property Name="ApprovedBy" Type="nvarchar(max)" />
+          <Property Name="ApprovedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RunwayInspectionChecklist">
+          <Key>
+            <PropertyRef Name="R_ID" />
+          </Key>
+          <Property Name="R_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RIC_ID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="RWY_Inspected" Type="nvarchar" MaxLength="50" />
+          <Property Name="Inspection_Time" Type="time" Precision="7" />
+          <Property Name="Acceptability" Type="nvarchar" MaxLength="50" />
+          <Property Name="Action_Taken" Type="nvarchar(max)" />
+          <Property Name="NC_Filed_Ref_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Person_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Other_Observations" Type="nvarchar(max)" />
+          <Property Name="Approval_Status" Type="bit" />
+          <Property Name="Email_Sent_Count" Type="int" />
+          <Property Name="DutyManagerRemarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RunwayInspectionObservations">
+          <Key>
+            <PropertyRef Name="RIC_ID" />
+          </Key>
+          <Property Name="RIC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OBSERVATIONS" Type="nvarchar(max)" />
+          <Property Name="ISACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TaxiwayInspectionChecklist">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIC_ID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="TWY_Inspected" Type="nvarchar" MaxLength="50" />
+          <Property Name="Inspection_Time" Type="time" Precision="7" />
+          <Property Name="Acceptability" Type="nvarchar" MaxLength="50" />
+          <Property Name="Action_Taken" Type="nvarchar(max)" />
+          <Property Name="NC_Filed_Ref_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Person_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Other_Observations" Type="nvarchar(max)" />
+          <Property Name="Approval_Status" Type="bit" />
+          <Property Name="Email_Sent_Count" Type="int" />
+          <Property Name="DutyManagerRemarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TaxiwayInspectionObservations">
+          <Key>
+            <PropertyRef Name="TIC_ID" />
+          </Key>
+          <Property Name="TIC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OBSERVATIONS" Type="nvarchar(max)" />
+          <Property Name="ISACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_ApronAreaMaster">
+          <Key>
+            <PropertyRef Name="A_ID" />
+          </Key>
+          <Property Name="A_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AG_ID" Type="int" />
+          <Property Name="Apron_Area" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_AreaGroupMaster">
+          <Key>
+            <PropertyRef Name="AG_ID" />
+          </Key>
+          <Property Name="AG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Area_Group" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_Departments">
+          <Key>
+            <PropertyRef Name="Dept_ID" />
+          </Key>
+          <Property Name="Dept_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_EmailReports">
+          <Key>
+            <PropertyRef Name="EmailReportID" />
+          </Key>
+          <Property Name="EmailReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChecklistObservation" Type="nvarchar(max)" />
+          <Property Name="DeptID" Type="int" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="EscalatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="EscalationLevel" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_Priority">
+          <Key>
+            <PropertyRef Name="PriorityID" />
+          </Key>
+          <Property Name="PriorityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PeriodOfEscalation" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_RunwayImages">
+          <Key>
+            <PropertyRef Name="Image_ID" />
+          </Key>
+          <Property Name="Image_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="R_ID" Type="int" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_SPOC">
+          <Key>
+            <PropertyRef Name="SPOC_ID" />
+          </Key>
+          <Property Name="SPOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPOC_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="SPOC_LEVEL" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Dept_ID" Type="int" />
+          <Property Name="SPOC_EmailId" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBL_TaxiwayAreaMaster">
+          <Key>
+            <PropertyRef Name="TA_ID" />
+          </Key>
+          <Property Name="TA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AG_ID" Type="int" />
+          <Property Name="Taxiway_Areas" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_TaxiwayImages">
+          <Key>
+            <PropertyRef Name="Image_ID" />
+          </Key>
+          <Property Name="Image_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="T_ID" Type="int" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="User_Master">
+          <Key>
+            <PropertyRef Name="UM_I" />
+          </Key>
+          <Property Name="UM_I" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UM_FIRST_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="UM_LAST_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="UM_USER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="UM_PASSWORD" Type="varchar" MaxLength="100" />
+          <Property Name="UM_ISACTIVE" Type="bit" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="AGM_I" Type="int" />
+          <Property Name="EMAIL_ID" Type="varchar" MaxLength="255" />
+          <Property Name="um_login_count" Type="int" />
+          <Property Name="um_last_login" Type="datetime" />
+          <Property Name="um_mobile_number" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <Association Name="FK__TBL_SPOC__Dept_I__40F9A68C">
+          <End Role="TBL_Departments" Type="Self.TBL_Departments" Multiplicity="0..1" />
+          <End Role="TBL_SPOC" Type="Self.TBL_SPOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Departments">
+              <PropertyRef Name="Dept_ID" />
+            </Principal>
+            <Dependent Role="TBL_SPOC">
+              <PropertyRef Name="Dept_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RunwayInspectionChecklist_RunwayInspectionChecklist">
+          <End Role="RunwayInspectionObservations" Type="Self.RunwayInspectionObservations" Multiplicity="0..1" />
+          <End Role="RunwayInspectionChecklist" Type="Self.RunwayInspectionChecklist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RunwayInspectionObservations">
+              <PropertyRef Name="RIC_ID" />
+            </Principal>
+            <Dependent Role="RunwayInspectionChecklist">
+              <PropertyRef Name="RIC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist">
+          <End Role="TaxiwayInspectionObservations" Type="Self.TaxiwayInspectionObservations" Multiplicity="0..1" />
+          <End Role="TaxiwayInspectionChecklist" Type="Self.TaxiwayInspectionChecklist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxiwayInspectionObservations">
+              <PropertyRef Name="TIC_ID" />
+            </Principal>
+            <Dependent Role="TaxiwayInspectionChecklist">
+              <PropertyRef Name="TIC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Master_App_Group_Master">
+          <End Role="App_Group_Master" Type="Self.App_Group_Master" Multiplicity="0..1" />
+          <End Role="User_Master" Type="Self.User_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="App_Group_Master">
+              <PropertyRef Name="AGM_I" />
+            </Principal>
+            <Dependent Role="User_Master">
+              <PropertyRef Name="AGM_I" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ApproveApronInspectionChecklist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="time" Mode="In" />
+          <Parameter Name="approved" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ApproveRunwayInspectionChecklist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="time" Mode="In" />
+          <Parameter Name="approved" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ApproveTaxiwayInspectionChecklist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="time" Mode="In" />
+          <Parameter Name="approved" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="Get_ApronInspection_Checklist_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="time" Mode="In" />
+        </Function>
+        <Function Name="Get_NewApronChecklists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_NewChecklists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_NewTaxiwayChecklists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_RunwayInspection_Checklist_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="time" Mode="In" />
+        </Function>
+        <Function Name="Get_RunwayInspection_Observation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_TaxiwayInspection_Checklist_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="time" Mode="In" />
+        </Function>
+        <Function Name="GET_USERLOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UM_USER_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="UM_PASSWORD" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetApronApprovalTicketList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetPendingApronCheckList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetPendingTaxiwayTicketList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetPendingTicketList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetRunwayApprovalTicketList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetTaxiwayApprovalTicketList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Insert_RunwayInspection_Checklist_Mobile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="RWYInspected" Type="nvarchar" Mode="In" />
+          <Parameter Name="InspectionTime" Type="time" Mode="In" />
+          <Parameter Name="Acceptability" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action_Taken" Type="nchar" Mode="In" />
+          <Parameter Name="Ncfiled_ref_no" Type="nvarchar" Mode="In" />
+          <Parameter Name="department_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="person_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="otherobservations" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="Sp_AreaGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="type" Type="int" Mode="In" />
+          <Parameter Name="agid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_ChangeEscalationStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_EditUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_EmailReportDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_EmailReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="daterange" Type="nvarchar" Mode="In" />
+          <Parameter Name="department" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GetDepartments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GetPriorityList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERT_APRONCHECKLISTDATA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="datetime" Mode="In" />
+          <Parameter Name="inspectiontime" Type="nvarchar" Mode="In" />
+          <Parameter Name="standone" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondone" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingone" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningone" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityone" Type="nvarchar" Mode="In" />
+          <Parameter Name="standtwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondtwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingtwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningtwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitytwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="standthree" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondthree" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingthree" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningthree" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitythree" Type="nvarchar" Mode="In" />
+          <Parameter Name="standfour" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondfour" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingfour" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningfour" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityfour" Type="nvarchar" Mode="In" />
+          <Parameter Name="standfive" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondfive" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingfive" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningfive" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityfive" Type="nvarchar" Mode="In" />
+          <Parameter Name="standsix" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondsix" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingsix" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningsix" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitysix" Type="nvarchar" Mode="In" />
+          <Parameter Name="standseven" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondseven" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingseven" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningseven" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityseven" Type="nvarchar" Mode="In" />
+          <Parameter Name="standeigth" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondeigth" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingeigth" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningeigth" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityeigth" Type="nvarchar" Mode="In" />
+          <Parameter Name="standnine" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondnine" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingnine" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningnine" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitynine" Type="nvarchar" Mode="In" />
+          <Parameter Name="standten" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondten" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingten" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningten" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityten" Type="nvarchar" Mode="In" />
+          <Parameter Name="standeleven" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondeleven" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingeleven" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningeleven" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityeleven" Type="nvarchar" Mode="In" />
+          <Parameter Name="standtwelve" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondtwelve" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingtwelve" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningtwelve" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitytwelve" Type="nvarchar" Mode="In" />
+          <Parameter Name="standthirteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondthirteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingthirteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningthirteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitythirteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="standfourteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondfourteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingfourteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningfourteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityfourteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="standfifteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondfifteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingfifteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningfifteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityfifteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="standsixteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondsixteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingsixteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningsixteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitysixteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="standseventeen" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondseventeen" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingseventeen" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningseventeen" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityseventeen" Type="nvarchar" Mode="In" />
+          <Parameter Name="standeighteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondeighteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingeighteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningeighteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilityeighteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="standnineteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondnineteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingnineteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningnineteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitynineteen" Type="nvarchar" Mode="In" />
+          <Parameter Name="standtwenty" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondtwenty" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingtwenty" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningtwenty" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitytwenty" Type="nvarchar" Mode="In" />
+          <Parameter Name="standtwentyone" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondtwentyone" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingtwentyone" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningtwentyone" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitytwentyone" Type="nvarchar" Mode="In" />
+          <Parameter Name="standtwentytwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondtwentytwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingtwentytwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningtwentytwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitytwentytwo" Type="nvarchar" Mode="In" />
+          <Parameter Name="standtwentythree" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcondtwentythree" Type="nvarchar" Mode="In" />
+          <Parameter Name="markingtwentythree" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaningtwentythree" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceabilitytwentythree" Type="nvarchar" Mode="In" />
+          <Parameter Name="safetyofficiername" Type="nvarchar" Mode="In" />
+          <Parameter Name="otherobservations" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontakenone" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakentwo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenthree" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenfour" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenfive" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakensix" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenseven" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakeneigth" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakennine" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenten" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakeneleven" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakentwelve" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenthirteen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenfourteen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenfifteen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakensixteen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakenseventeen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakeneighteen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakennineteen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakentwenty" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakentwentyone" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakentwentytwo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="actiontakentwentythree" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERT_APRONCHECKLISTDATA_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="datetime" Mode="In" />
+          <Parameter Name="inspectiontime" Type="time" Mode="In" />
+          <Parameter Name="stand" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcond" Type="nvarchar" Mode="In" />
+          <Parameter Name="marking" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaning" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceability" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="safetyofficiername" Type="nvarchar" Mode="In" />
+          <Parameter Name="otherobservations" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERT_RUNWAYCHECKLISTDATA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="datetime" Mode="In" />
+          <Parameter Name="rwyinspected" Type="nvarchar" Mode="In" />
+          <Parameter Name="inspectiontime" Type="time" Mode="In" />
+          <Parameter Name="approachlightsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="approachlightAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="approachlightNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayedgelightsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayedgelightAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayedgelightNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="papisign" Type="nvarchar" Mode="In" />
+          <Parameter Name="papiAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="papiNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaycentrelightsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaycentrelightAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaycentrelightNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaythrlightsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaythrlightAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaythrlightNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayendlightsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayendlightAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayendlightNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaytdzlightsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaytdzlightAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaytdzlightNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="retilsandtwylightsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="retilsandtwylightAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="retilsandtwylightNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaysurfacesign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaysurfaceAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaysurfaceNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="fodsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="fodAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="fodNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayshouldersign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayshoulderAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayshoulderNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaymarkingsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaymarkingAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwaymarkingNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="rubberbuildupsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="rubberbuildupAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="rubberbuildupNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="opencablingsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="opencablingAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="opencablingNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="lightingvisibilitysign" Type="nvarchar" Mode="In" />
+          <Parameter Name="lightingvisibilityAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="lightingvisibilityNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="birdsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="birdAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="birdNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="dampwetsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="dampwetAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="dampwetNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="spillagesign" Type="nvarchar" Mode="In" />
+          <Parameter Name="spillageAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="spillageNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="obstructionsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="obstructionAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="obstructionNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="grasslengthsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="grasslengthAction" Type="nvarchar" Mode="In" />
+          <Parameter Name="grasslengthNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="InspectorName" Type="nvarchar" Mode="In" />
+          <Parameter Name="InspectorSign" Type="nvarchar" Mode="In" />
+          <Parameter Name="otherobservations" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERT_TAXIWAYCHECKLISTDATA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FOD" Type="nvarchar" Mode="In" />
+          <Parameter Name="FODNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="InspectorName" Type="nvarchar" Mode="In" />
+          <Parameter Name="InspectorSign" Type="nvarchar" Mode="In" />
+          <Parameter Name="Obstruction" Type="nvarchar" Mode="In" />
+          <Parameter Name="ObstructionNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="airsideworks" Type="nvarchar" Mode="In" />
+          <Parameter Name="airsideworksNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="birdsign" Type="nvarchar" Mode="In" />
+          <Parameter Name="birdsignNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="drainscleanliness" Type="nvarchar" Mode="In" />
+          <Parameter Name="drainscleanlinessNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="drainsstructural" Type="nvarchar" Mode="In" />
+          <Parameter Name="drainsstructuralNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="firehazards" Type="nvarchar" Mode="In" />
+          <Parameter Name="firehazardsNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="grasslength" Type="nvarchar" Mode="In" />
+          <Parameter Name="grasslengthNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="inspectiontime" Type="time" Mode="In" />
+          <Parameter Name="manholesdraincovers" Type="nvarchar" Mode="In" />
+          <Parameter Name="manholesdraincoversNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="obviouspavementdamage" Type="nvarchar" Mode="In" />
+          <Parameter Name="obviouspavementdamageNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="opencabling" Type="nvarchar" Mode="In" />
+          <Parameter Name="opencablingNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="otherobservations" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="runwayguardlights" Type="nvarchar" Mode="In" />
+          <Parameter Name="runwayguardlightsNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="rwyinspected" Type="nvarchar" Mode="In" />
+          <Parameter Name="signslightning" Type="nvarchar" Mode="In" />
+          <Parameter Name="signslightningNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="spillageNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="spillagesign" Type="nvarchar" Mode="In" />
+          <Parameter Name="standingwater" Type="nvarchar" Mode="In" />
+          <Parameter Name="standingwaterNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwaycentrelinelights" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwaycentrelinelightsNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwayedgelights" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwayedgelightsNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwaymarkings" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwaymarkingsNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwaysurfaces" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwaysurfacesNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="winddirectionalindicator" Type="nvarchar" Mode="In" />
+          <Parameter Name="winddirectionalindicatorNC" Type="nvarchar" Mode="In" />
+          <Parameter Name="taxiwayedgelightsAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="taxiwaycentrelinelightsAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="runwayguardaction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="taxiwaysurfacesAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="FODAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="taxiwaymarkingsAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="obviouspavementdamageAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ObstructionAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="manholesdraincoversAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="opencablingAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="signslightningAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="drainscleanlinessAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="drainsstructuralAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="winddirectionalindicatorAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="birdsignAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="standingwaterAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="airsideworksAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="spillageAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="firehazardsAction" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="grasslengthAction" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertEmailReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="deptid" Type="int" Mode="In" />
+          <Parameter Name="priority" Type="int" Mode="In" />
+          <Parameter Name="observation" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertRunwayImageDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="observationid" Type="int" Mode="In" />
+          <Parameter Name="filename" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertTaxiwayImageDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="observationid" Type="int" Mode="In" />
+          <Parameter Name="filename" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_REGISTER_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="firstname" Type="varchar" Mode="In" />
+          <Parameter Name="lastname" Type="varchar" Mode="In" />
+          <Parameter Name="emailid" Type="varchar" Mode="In" />
+          <Parameter Name="profileoptionRadio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_TaxiwayAreaMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="areagroup" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_TaxiwayUpdateActionTaken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability0" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability1" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability2" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability3" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability4" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability5" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability6" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability7" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability8" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability9" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability10" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability11" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability12" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability13" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability14" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability15" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability16" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability17" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability18" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability19" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled0" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled1" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled2" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled3" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled4" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled5" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled6" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled7" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled8" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled9" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled10" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled11" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled12" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled13" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled14" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled15" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled16" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled17" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled18" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled19" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken0" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken1" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken2" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken3" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken4" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken5" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken6" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken7" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken8" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken9" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken10" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken11" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken12" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken13" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken14" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken15" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken16" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken17" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken18" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken19" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_APRONCHECKLISTDATA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aicid" Type="int" Mode="In" />
+          <Parameter Name="date" Type="datetime" Mode="In" />
+          <Parameter Name="inspectiontime" Type="time" Mode="In" />
+          <Parameter Name="stand" Type="nvarchar" Mode="In" />
+          <Parameter Name="surfcond" Type="nvarchar" Mode="In" />
+          <Parameter Name="marking" Type="nvarchar" Mode="In" />
+          <Parameter Name="cleaning" Type="nvarchar" Mode="In" />
+          <Parameter Name="serviceability" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateActionTaken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability0" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability1" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability2" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability3" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability4" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability5" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability6" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability7" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability8" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability9" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability10" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability11" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability12" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability13" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability14" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability15" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability16" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability17" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability18" Type="nvarchar" Mode="In" />
+          <Parameter Name="acceptability19" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled0" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled1" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled2" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled3" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled4" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled5" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled6" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled7" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled8" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled9" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled10" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled11" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled12" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled13" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled14" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled15" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled16" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled17" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled18" Type="nvarchar" Mode="In" />
+          <Parameter Name="ncfiled19" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken0" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken1" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken2" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken3" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken4" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken5" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken6" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken7" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken8" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken9" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken10" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken11" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken12" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken13" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken14" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken15" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken16" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken17" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken18" Type="nvarchar" Mode="In" />
+          <Parameter Name="actiontaken19" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateApprovalDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="remarks" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="approvalstatus" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UpdateApronChecklistApprovalDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="remarks" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="approvalstatus" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UpdateTaxiwayApprovalDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="remarks" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="approvalstatus" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="Airside_Safety_ProjectModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AirsideHOTSpecifics" EntityType="Self.AirsideHOTSpecifics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Group_Master" EntityType="Self.App_Group_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApronInspectionChecklist" EntityType="Self.ApronInspectionChecklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOTWorkSafetyChecklist" EntityType="Self.HOTWorkSafetyChecklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RunwayInspectionChecklist" EntityType="Self.RunwayInspectionChecklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RunwayInspectionObservations" EntityType="Self.RunwayInspectionObservations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxiwayInspectionChecklist" EntityType="Self.TaxiwayInspectionChecklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxiwayInspectionObservations" EntityType="Self.TaxiwayInspectionObservations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ApronAreaMaster" EntityType="Self.TBL_ApronAreaMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_AreaGroupMaster" EntityType="Self.TBL_AreaGroupMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Departments" EntityType="Self.TBL_Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_EmailReports" EntityType="Self.TBL_EmailReports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Priority" EntityType="Self.TBL_Priority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_RunwayImages" EntityType="Self.TBL_RunwayImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SPOC" EntityType="Self.TBL_SPOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_TaxiwayAreaMaster" EntityType="Self.TBL_TaxiwayAreaMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_TaxiwayImages" EntityType="Self.TBL_TaxiwayImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Master" EntityType="Self.User_Master" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TBL_SPOC__Dept_I__40F9A68C" Association="Self.FK__TBL_SPOC__Dept_I__40F9A68C">
+            <End Role="TBL_Departments" EntitySet="TBL_Departments" />
+            <End Role="TBL_SPOC" EntitySet="TBL_SPOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RunwayInspectionChecklist_RunwayInspectionChecklist" Association="Self.FK_RunwayInspectionChecklist_RunwayInspectionChecklist">
+            <End Role="RunwayInspectionObservations" EntitySet="RunwayInspectionObservations" />
+            <End Role="RunwayInspectionChecklist" EntitySet="RunwayInspectionChecklist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist" Association="Self.FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist">
+            <End Role="TaxiwayInspectionObservations" EntitySet="TaxiwayInspectionObservations" />
+            <End Role="TaxiwayInspectionChecklist" EntitySet="TaxiwayInspectionChecklist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Master_App_Group_Master" Association="Self.FK_User_Master_App_Group_Master">
+            <End Role="App_Group_Master" EntitySet="App_Group_Master" />
+            <End Role="User_Master" EntitySet="User_Master" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Airside_Safety_ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AirsideHOTSpecific">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Specifics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="App_Group_Master">
+          <Key>
+            <PropertyRef Name="AGM_I" />
+          </Key>
+          <Property Name="AGM_I" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AGM_GROUP_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AGM_DESC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AGM_ISACTIVE" Type="Boolean" />
+          <NavigationProperty Name="User_Master" Relationship="Self.FK_User_Master_App_Group_Master" FromRole="App_Group_Master" ToRole="User_Master" />
+        </EntityType>
+        <EntityType Name="ApronInspectionChecklist">
+          <Key>
+            <PropertyRef Name="AIC_ID" />
+          </Key>
+          <Property Name="AIC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InspectionDate" Type="DateTime" Precision="3" />
+          <Property Name="Inspection_Time" Type="Time" Precision="7" />
+          <Property Name="Stand" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Surface_Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Markings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cleaning" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Serviceability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActionTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfficierName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Other_Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalStatus" Type="Boolean" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalDateTime" Type="DateTime" Precision="3" />
+          <Property Name="DutyManagerRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="HOTWorkSafetyChecklist">
+          <Key>
+            <PropertyRef Name="HOT_ID" />
+          </Key>
+          <Property Name="HOT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="PermitNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Agency" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OtherObservations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InspectorName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Createdon" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RunwayInspectionChecklist">
+          <Key>
+            <PropertyRef Name="R_ID" />
+          </Key>
+          <Property Name="R_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RIC_ID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="RWY_Inspected" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Inspection_Time" Type="Time" Precision="7" />
+          <Property Name="Acceptability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Action_Taken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NC_Filed_Ref_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Person_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Other_Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Approval_Status" Type="Boolean" />
+          <Property Name="Email_Sent_Count" Type="Int32" />
+          <Property Name="DutyManagerRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RunwayInspectionObservation" Relationship="Self.FK_RunwayInspectionChecklist_RunwayInspectionChecklist" FromRole="RunwayInspectionChecklist" ToRole="RunwayInspectionObservations" />
+        </EntityType>
+        <EntityType Name="RunwayInspectionObservation">
+          <Key>
+            <PropertyRef Name="RIC_ID" />
+          </Key>
+          <Property Name="RIC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OBSERVATIONS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+          <NavigationProperty Name="RunwayInspectionChecklists" Relationship="Self.FK_RunwayInspectionChecklist_RunwayInspectionChecklist" FromRole="RunwayInspectionObservations" ToRole="RunwayInspectionChecklist" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TaxiwayInspectionChecklist">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIC_ID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="TWY_Inspected" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Inspection_Time" Type="Time" Precision="7" />
+          <Property Name="Acceptability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Action_Taken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NC_Filed_Ref_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Person_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Other_Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Approval_Status" Type="Boolean" />
+          <Property Name="Email_Sent_Count" Type="Int32" />
+          <Property Name="DutyManagerRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaxiwayInspectionObservation" Relationship="Self.FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist" FromRole="TaxiwayInspectionChecklist" ToRole="TaxiwayInspectionObservations" />
+        </EntityType>
+        <EntityType Name="TaxiwayInspectionObservation">
+          <Key>
+            <PropertyRef Name="TIC_ID" />
+          </Key>
+          <Property Name="TIC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OBSERVATIONS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+          <NavigationProperty Name="TaxiwayInspectionChecklists" Relationship="Self.FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist" FromRole="TaxiwayInspectionObservations" ToRole="TaxiwayInspectionChecklist" />
+        </EntityType>
+        <EntityType Name="TBL_ApronAreaMaster">
+          <Key>
+            <PropertyRef Name="A_ID" />
+          </Key>
+          <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AG_ID" Type="Int32" />
+          <Property Name="Apron_Area" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_AreaGroupMaster">
+          <Key>
+            <PropertyRef Name="AG_ID" />
+          </Key>
+          <Property Name="AG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Area_Group" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_Departments">
+          <Key>
+            <PropertyRef Name="Dept_ID" />
+          </Key>
+          <Property Name="Dept_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="TBL_SPOC" Relationship="Self.FK__TBL_SPOC__Dept_I__40F9A68C" FromRole="TBL_Departments" ToRole="TBL_SPOC" />
+        </EntityType>
+        <EntityType Name="TBL_EmailReports">
+          <Key>
+            <PropertyRef Name="EmailReportID" />
+          </Key>
+          <Property Name="EmailReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChecklistObservation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeptID" Type="Int32" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="EscalatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="EscalationLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBL_Priority">
+          <Key>
+            <PropertyRef Name="PriorityID" />
+          </Key>
+          <Property Name="PriorityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodOfEscalation" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_RunwayImages">
+          <Key>
+            <PropertyRef Name="Image_ID" />
+          </Key>
+          <Property Name="Image_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="R_ID" Type="Int32" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_SPOC">
+          <Key>
+            <PropertyRef Name="SPOC_ID" />
+          </Key>
+          <Property Name="SPOC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPOC_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SPOC_LEVEL" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Dept_ID" Type="Int32" />
+          <Property Name="SPOC_EmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Departments" Relationship="Self.FK__TBL_SPOC__Dept_I__40F9A68C" FromRole="TBL_SPOC" ToRole="TBL_Departments" />
+        </EntityType>
+        <EntityType Name="TBL_TaxiwayAreaMaster">
+          <Key>
+            <PropertyRef Name="TA_ID" />
+          </Key>
+          <Property Name="TA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AG_ID" Type="Int32" />
+          <Property Name="Taxiway_Areas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_TaxiwayImages">
+          <Key>
+            <PropertyRef Name="Image_ID" />
+          </Key>
+          <Property Name="Image_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="T_ID" Type="Int32" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User_Master">
+          <Key>
+            <PropertyRef Name="UM_I" />
+          </Key>
+          <Property Name="UM_I" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UM_FIRST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UM_LAST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UM_USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UM_PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UM_ISACTIVE" Type="Boolean" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="AGM_I" Type="Int32" />
+          <Property Name="EMAIL_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="um_login_count" Type="Int32" />
+          <Property Name="um_last_login" Type="DateTime" Precision="3" />
+          <Property Name="um_mobile_number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="App_Group_Master" Relationship="Self.FK_User_Master_App_Group_Master" FromRole="User_Master" ToRole="App_Group_Master" />
+        </EntityType>
+        <Association Name="FK_User_Master_App_Group_Master">
+          <End Role="App_Group_Master" Type="Self.App_Group_Master" Multiplicity="0..1" />
+          <End Role="User_Master" Type="Self.User_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="App_Group_Master">
+              <PropertyRef Name="AGM_I" />
+            </Principal>
+            <Dependent Role="User_Master">
+              <PropertyRef Name="AGM_I" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RunwayInspectionChecklist_RunwayInspectionChecklist">
+          <End Role="RunwayInspectionObservations" Type="Self.RunwayInspectionObservation" Multiplicity="0..1" />
+          <End Role="RunwayInspectionChecklist" Type="Self.RunwayInspectionChecklist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RunwayInspectionObservations">
+              <PropertyRef Name="RIC_ID" />
+            </Principal>
+            <Dependent Role="RunwayInspectionChecklist">
+              <PropertyRef Name="RIC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist">
+          <End Role="TaxiwayInspectionObservations" Type="Self.TaxiwayInspectionObservation" Multiplicity="0..1" />
+          <End Role="TaxiwayInspectionChecklist" Type="Self.TaxiwayInspectionChecklist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxiwayInspectionObservations">
+              <PropertyRef Name="TIC_ID" />
+            </Principal>
+            <Dependent Role="TaxiwayInspectionChecklist">
+              <PropertyRef Name="TIC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_SPOC__Dept_I__40F9A68C">
+          <End Role="TBL_Departments" Type="Self.TBL_Departments" Multiplicity="0..1" />
+          <End Role="TBL_SPOC" Type="Self.TBL_SPOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Departments">
+              <PropertyRef Name="Dept_ID" />
+            </Principal>
+            <Dependent Role="TBL_SPOC">
+              <PropertyRef Name="Dept_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Airside_Safety_ProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AirsideHOTSpecifics" EntityType="Self.AirsideHOTSpecific" />
+          <EntitySet Name="App_Group_Master" EntityType="Self.App_Group_Master" />
+          <EntitySet Name="ApronInspectionChecklists" EntityType="Self.ApronInspectionChecklist" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="HOTWorkSafetyChecklists" EntityType="Self.HOTWorkSafetyChecklist" />
+          <EntitySet Name="RunwayInspectionChecklists" EntityType="Self.RunwayInspectionChecklist" />
+          <EntitySet Name="RunwayInspectionObservations" EntityType="Self.RunwayInspectionObservation" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TaxiwayInspectionChecklists" EntityType="Self.TaxiwayInspectionChecklist" />
+          <EntitySet Name="TaxiwayInspectionObservations" EntityType="Self.TaxiwayInspectionObservation" />
+          <EntitySet Name="TBL_ApronAreaMaster" EntityType="Self.TBL_ApronAreaMaster" />
+          <EntitySet Name="TBL_AreaGroupMaster" EntityType="Self.TBL_AreaGroupMaster" />
+          <EntitySet Name="TBL_Departments" EntityType="Self.TBL_Departments" />
+          <EntitySet Name="TBL_EmailReports" EntityType="Self.TBL_EmailReports" />
+          <EntitySet Name="TBL_Priority" EntityType="Self.TBL_Priority" />
+          <EntitySet Name="TBL_RunwayImages" EntityType="Self.TBL_RunwayImages" />
+          <EntitySet Name="TBL_SPOC" EntityType="Self.TBL_SPOC" />
+          <EntitySet Name="TBL_TaxiwayAreaMaster" EntityType="Self.TBL_TaxiwayAreaMaster" />
+          <EntitySet Name="TBL_TaxiwayImages" EntityType="Self.TBL_TaxiwayImages" />
+          <EntitySet Name="User_Master" EntityType="Self.User_Master" />
+          <AssociationSet Name="FK_User_Master_App_Group_Master" Association="Self.FK_User_Master_App_Group_Master">
+            <End Role="App_Group_Master" EntitySet="App_Group_Master" />
+            <End Role="User_Master" EntitySet="User_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RunwayInspectionChecklist_RunwayInspectionChecklist" Association="Self.FK_RunwayInspectionChecklist_RunwayInspectionChecklist">
+            <End Role="RunwayInspectionObservations" EntitySet="RunwayInspectionObservations" />
+            <End Role="RunwayInspectionChecklist" EntitySet="RunwayInspectionChecklists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist" Association="Self.FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist">
+            <End Role="TaxiwayInspectionObservations" EntitySet="TaxiwayInspectionObservations" />
+            <End Role="TaxiwayInspectionChecklist" EntitySet="TaxiwayInspectionChecklists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_SPOC__Dept_I__40F9A68C" Association="Self.FK__TBL_SPOC__Dept_I__40F9A68C">
+            <End Role="TBL_Departments" EntitySet="TBL_Departments" />
+            <End Role="TBL_SPOC" EntitySet="TBL_SPOC" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="ApproveApronInspectionChecklist">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="Time" />
+            <Parameter Name="approved" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ApproveRunwayInspectionChecklist">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="Time" />
+            <Parameter Name="approved" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ApproveTaxiwayInspectionChecklist">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="Time" />
+            <Parameter Name="approved" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Get_ApronInspection_Checklist_Report" ReturnType="Collection(Airside_Safety_ProjectModel.Get_ApronInspection_Checklist_Report_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="Time" />
+          </FunctionImport>
+          <FunctionImport Name="Get_NewApronChecklists" ReturnType="Collection(Airside_Safety_ProjectModel.Get_NewApronChecklists_Result)" />
+          <FunctionImport Name="Get_NewChecklists" ReturnType="Collection(Airside_Safety_ProjectModel.Get_NewChecklists_Result)" />
+          <FunctionImport Name="Get_NewTaxiwayChecklists" ReturnType="Collection(Airside_Safety_ProjectModel.Get_NewTaxiwayChecklists_Result)" />
+          <FunctionImport Name="Get_RunwayInspection_Checklist_Report" ReturnType="Collection(Airside_Safety_ProjectModel.Get_RunwayInspection_Checklist_Report_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="Time" />
+          </FunctionImport>
+          <FunctionImport Name="Get_RunwayInspection_Observation" ReturnType="Collection(Airside_Safety_ProjectModel.Get_RunwayInspection_Observation_Result)" />
+          <FunctionImport Name="Get_TaxiwayInspection_Checklist_Report" ReturnType="Collection(Airside_Safety_ProjectModel.Get_TaxiwayInspection_Checklist_Report_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="Time" />
+          </FunctionImport>
+          <FunctionImport Name="GET_USERLOGIN" ReturnType="Collection(Airside_Safety_ProjectModel.GET_USERLOGIN_Result)">
+            <Parameter Name="UM_USER_NAME" Mode="In" Type="String" />
+            <Parameter Name="UM_PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetApronApprovalTicketList" ReturnType="Collection(Airside_Safety_ProjectModel.GetApronApprovalTicketList_Result)" />
+          <FunctionImport Name="GetPendingApronCheckList" />
+          <FunctionImport Name="GetPendingTaxiwayTicketList" ReturnType="Collection(Airside_Safety_ProjectModel.GetPendingTaxiwayTicketList_Result)" />
+          <FunctionImport Name="GetPendingTicketList" ReturnType="Collection(Airside_Safety_ProjectModel.GetPendingTicketList_Result)" />
+          <FunctionImport Name="GetRunwayApprovalTicketList" ReturnType="Collection(Airside_Safety_ProjectModel.GetRunwayApprovalTicketList_Result)" />
+          <FunctionImport Name="GetTaxiwayApprovalTicketList" ReturnType="Collection(Airside_Safety_ProjectModel.GetTaxiwayApprovalTicketList_Result)" />
+          <FunctionImport Name="Insert_RunwayInspection_Checklist_Mobile">
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="RWYInspected" Mode="In" Type="String" />
+            <Parameter Name="InspectionTime" Mode="In" Type="Time" />
+            <Parameter Name="Acceptability" Mode="In" Type="String" />
+            <Parameter Name="Action_Taken" Mode="In" Type="String" />
+            <Parameter Name="Ncfiled_ref_no" Mode="In" Type="String" />
+            <Parameter Name="department_name" Mode="In" Type="String" />
+            <Parameter Name="person_name" Mode="In" Type="String" />
+            <Parameter Name="otherobservations" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_AreaGroup" ReturnType="Collection(Airside_Safety_ProjectModel.Sp_AreaGroup_Result)">
+            <Parameter Name="type" Mode="In" Type="Int32" />
+            <Parameter Name="agid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ChangeEscalationStatus">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteUser">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_EditUser" ReturnType="Collection(Airside_Safety_ProjectModel.SP_EditUser_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_EmailReportDetails" ReturnType="Collection(Airside_Safety_ProjectModel.SP_EmailReportDetails_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_EmailReports" ReturnType="Collection(Airside_Safety_ProjectModel.SP_EmailReports_Result)">
+            <Parameter Name="daterange" Mode="In" Type="String" />
+            <Parameter Name="department" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetDepartments" ReturnType="Collection(Airside_Safety_ProjectModel.SP_GetDepartments_Result)" />
+          <FunctionImport Name="SP_GetPriorityList" ReturnType="Collection(Airside_Safety_ProjectModel.SP_GetPriorityList_Result)" />
+          <FunctionImport Name="Sp_GetUsers" ReturnType="Collection(Airside_Safety_ProjectModel.Sp_GetUsers_Result)" />
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Airside_Safety_ProjectModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Airside_Safety_ProjectModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERT_APRONCHECKLISTDATA">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="inspectiontime" Mode="In" Type="String" />
+            <Parameter Name="standone" Mode="In" Type="String" />
+            <Parameter Name="surfcondone" Mode="In" Type="String" />
+            <Parameter Name="markingone" Mode="In" Type="String" />
+            <Parameter Name="cleaningone" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityone" Mode="In" Type="String" />
+            <Parameter Name="standtwo" Mode="In" Type="String" />
+            <Parameter Name="surfcondtwo" Mode="In" Type="String" />
+            <Parameter Name="markingtwo" Mode="In" Type="String" />
+            <Parameter Name="cleaningtwo" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitytwo" Mode="In" Type="String" />
+            <Parameter Name="standthree" Mode="In" Type="String" />
+            <Parameter Name="surfcondthree" Mode="In" Type="String" />
+            <Parameter Name="markingthree" Mode="In" Type="String" />
+            <Parameter Name="cleaningthree" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitythree" Mode="In" Type="String" />
+            <Parameter Name="standfour" Mode="In" Type="String" />
+            <Parameter Name="surfcondfour" Mode="In" Type="String" />
+            <Parameter Name="markingfour" Mode="In" Type="String" />
+            <Parameter Name="cleaningfour" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityfour" Mode="In" Type="String" />
+            <Parameter Name="standfive" Mode="In" Type="String" />
+            <Parameter Name="surfcondfive" Mode="In" Type="String" />
+            <Parameter Name="markingfive" Mode="In" Type="String" />
+            <Parameter Name="cleaningfive" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityfive" Mode="In" Type="String" />
+            <Parameter Name="standsix" Mode="In" Type="String" />
+            <Parameter Name="surfcondsix" Mode="In" Type="String" />
+            <Parameter Name="markingsix" Mode="In" Type="String" />
+            <Parameter Name="cleaningsix" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitysix" Mode="In" Type="String" />
+            <Parameter Name="standseven" Mode="In" Type="String" />
+            <Parameter Name="surfcondseven" Mode="In" Type="String" />
+            <Parameter Name="markingseven" Mode="In" Type="String" />
+            <Parameter Name="cleaningseven" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityseven" Mode="In" Type="String" />
+            <Parameter Name="standeigth" Mode="In" Type="String" />
+            <Parameter Name="surfcondeigth" Mode="In" Type="String" />
+            <Parameter Name="markingeigth" Mode="In" Type="String" />
+            <Parameter Name="cleaningeigth" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityeigth" Mode="In" Type="String" />
+            <Parameter Name="standnine" Mode="In" Type="String" />
+            <Parameter Name="surfcondnine" Mode="In" Type="String" />
+            <Parameter Name="markingnine" Mode="In" Type="String" />
+            <Parameter Name="cleaningnine" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitynine" Mode="In" Type="String" />
+            <Parameter Name="standten" Mode="In" Type="String" />
+            <Parameter Name="surfcondten" Mode="In" Type="String" />
+            <Parameter Name="markingten" Mode="In" Type="String" />
+            <Parameter Name="cleaningten" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityten" Mode="In" Type="String" />
+            <Parameter Name="standeleven" Mode="In" Type="String" />
+            <Parameter Name="surfcondeleven" Mode="In" Type="String" />
+            <Parameter Name="markingeleven" Mode="In" Type="String" />
+            <Parameter Name="cleaningeleven" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityeleven" Mode="In" Type="String" />
+            <Parameter Name="standtwelve" Mode="In" Type="String" />
+            <Parameter Name="surfcondtwelve" Mode="In" Type="String" />
+            <Parameter Name="markingtwelve" Mode="In" Type="String" />
+            <Parameter Name="cleaningtwelve" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitytwelve" Mode="In" Type="String" />
+            <Parameter Name="standthirteen" Mode="In" Type="String" />
+            <Parameter Name="surfcondthirteen" Mode="In" Type="String" />
+            <Parameter Name="markingthirteen" Mode="In" Type="String" />
+            <Parameter Name="cleaningthirteen" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitythirteen" Mode="In" Type="String" />
+            <Parameter Name="standfourteen" Mode="In" Type="String" />
+            <Parameter Name="surfcondfourteen" Mode="In" Type="String" />
+            <Parameter Name="markingfourteen" Mode="In" Type="String" />
+            <Parameter Name="cleaningfourteen" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityfourteen" Mode="In" Type="String" />
+            <Parameter Name="standfifteen" Mode="In" Type="String" />
+            <Parameter Name="surfcondfifteen" Mode="In" Type="String" />
+            <Parameter Name="markingfifteen" Mode="In" Type="String" />
+            <Parameter Name="cleaningfifteen" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityfifteen" Mode="In" Type="String" />
+            <Parameter Name="standsixteen" Mode="In" Type="String" />
+            <Parameter Name="surfcondsixteen" Mode="In" Type="String" />
+            <Parameter Name="markingsixteen" Mode="In" Type="String" />
+            <Parameter Name="cleaningsixteen" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitysixteen" Mode="In" Type="String" />
+            <Parameter Name="standseventeen" Mode="In" Type="String" />
+            <Parameter Name="surfcondseventeen" Mode="In" Type="String" />
+            <Parameter Name="markingseventeen" Mode="In" Type="String" />
+            <Parameter Name="cleaningseventeen" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityseventeen" Mode="In" Type="String" />
+            <Parameter Name="standeighteen" Mode="In" Type="String" />
+            <Parameter Name="surfcondeighteen" Mode="In" Type="String" />
+            <Parameter Name="markingeighteen" Mode="In" Type="String" />
+            <Parameter Name="cleaningeighteen" Mode="In" Type="String" />
+            <Parameter Name="serviceabilityeighteen" Mode="In" Type="String" />
+            <Parameter Name="standnineteen" Mode="In" Type="String" />
+            <Parameter Name="surfcondnineteen" Mode="In" Type="String" />
+            <Parameter Name="markingnineteen" Mode="In" Type="String" />
+            <Parameter Name="cleaningnineteen" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitynineteen" Mode="In" Type="String" />
+            <Parameter Name="standtwenty" Mode="In" Type="String" />
+            <Parameter Name="surfcondtwenty" Mode="In" Type="String" />
+            <Parameter Name="markingtwenty" Mode="In" Type="String" />
+            <Parameter Name="cleaningtwenty" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitytwenty" Mode="In" Type="String" />
+            <Parameter Name="standtwentyone" Mode="In" Type="String" />
+            <Parameter Name="surfcondtwentyone" Mode="In" Type="String" />
+            <Parameter Name="markingtwentyone" Mode="In" Type="String" />
+            <Parameter Name="cleaningtwentyone" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitytwentyone" Mode="In" Type="String" />
+            <Parameter Name="standtwentytwo" Mode="In" Type="String" />
+            <Parameter Name="surfcondtwentytwo" Mode="In" Type="String" />
+            <Parameter Name="markingtwentytwo" Mode="In" Type="String" />
+            <Parameter Name="cleaningtwentytwo" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitytwentytwo" Mode="In" Type="String" />
+            <Parameter Name="standtwentythree" Mode="In" Type="String" />
+            <Parameter Name="surfcondtwentythree" Mode="In" Type="String" />
+            <Parameter Name="markingtwentythree" Mode="In" Type="String" />
+            <Parameter Name="cleaningtwentythree" Mode="In" Type="String" />
+            <Parameter Name="serviceabilitytwentythree" Mode="In" Type="String" />
+            <Parameter Name="safetyofficiername" Mode="In" Type="String" />
+            <Parameter Name="otherobservations" Mode="In" Type="String" />
+            <Parameter Name="actiontakenone" Mode="In" Type="String" />
+            <Parameter Name="actiontakentwo" Mode="In" Type="String" />
+            <Parameter Name="actiontakenthree" Mode="In" Type="String" />
+            <Parameter Name="actiontakenfour" Mode="In" Type="String" />
+            <Parameter Name="actiontakenfive" Mode="In" Type="String" />
+            <Parameter Name="actiontakensix" Mode="In" Type="String" />
+            <Parameter Name="actiontakenseven" Mode="In" Type="String" />
+            <Parameter Name="actiontakeneigth" Mode="In" Type="String" />
+            <Parameter Name="actiontakennine" Mode="In" Type="String" />
+            <Parameter Name="actiontakenten" Mode="In" Type="String" />
+            <Parameter Name="actiontakeneleven" Mode="In" Type="String" />
+            <Parameter Name="actiontakentwelve" Mode="In" Type="String" />
+            <Parameter Name="actiontakenthirteen" Mode="In" Type="String" />
+            <Parameter Name="actiontakenfourteen" Mode="In" Type="String" />
+            <Parameter Name="actiontakenfifteen" Mode="In" Type="String" />
+            <Parameter Name="actiontakensixteen" Mode="In" Type="String" />
+            <Parameter Name="actiontakenseventeen" Mode="In" Type="String" />
+            <Parameter Name="actiontakeneighteen" Mode="In" Type="String" />
+            <Parameter Name="actiontakennineteen" Mode="In" Type="String" />
+            <Parameter Name="actiontakentwenty" Mode="In" Type="String" />
+            <Parameter Name="actiontakentwentyone" Mode="In" Type="String" />
+            <Parameter Name="actiontakentwentytwo" Mode="In" Type="String" />
+            <Parameter Name="actiontakentwentythree" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERT_APRONCHECKLISTDATA_1">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="inspectiontime" Mode="In" Type="Time" />
+            <Parameter Name="stand" Mode="In" Type="String" />
+            <Parameter Name="surfcond" Mode="In" Type="String" />
+            <Parameter Name="marking" Mode="In" Type="String" />
+            <Parameter Name="cleaning" Mode="In" Type="String" />
+            <Parameter Name="serviceability" Mode="In" Type="String" />
+            <Parameter Name="actiontaken" Mode="In" Type="String" />
+            <Parameter Name="safetyofficiername" Mode="In" Type="String" />
+            <Parameter Name="otherobservations" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERT_RUNWAYCHECKLISTDATA">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="rwyinspected" Mode="In" Type="String" />
+            <Parameter Name="inspectiontime" Mode="In" Type="Time" />
+            <Parameter Name="approachlightsign" Mode="In" Type="String" />
+            <Parameter Name="approachlightAction" Mode="In" Type="String" />
+            <Parameter Name="approachlightNC" Mode="In" Type="String" />
+            <Parameter Name="runwayedgelightsign" Mode="In" Type="String" />
+            <Parameter Name="runwayedgelightAction" Mode="In" Type="String" />
+            <Parameter Name="runwayedgelightNC" Mode="In" Type="String" />
+            <Parameter Name="papisign" Mode="In" Type="String" />
+            <Parameter Name="papiAction" Mode="In" Type="String" />
+            <Parameter Name="papiNC" Mode="In" Type="String" />
+            <Parameter Name="runwaycentrelightsign" Mode="In" Type="String" />
+            <Parameter Name="runwaycentrelightAction" Mode="In" Type="String" />
+            <Parameter Name="runwaycentrelightNC" Mode="In" Type="String" />
+            <Parameter Name="runwaythrlightsign" Mode="In" Type="String" />
+            <Parameter Name="runwaythrlightAction" Mode="In" Type="String" />
+            <Parameter Name="runwaythrlightNC" Mode="In" Type="String" />
+            <Parameter Name="runwayendlightsign" Mode="In" Type="String" />
+            <Parameter Name="runwayendlightAction" Mode="In" Type="String" />
+            <Parameter Name="runwayendlightNC" Mode="In" Type="String" />
+            <Parameter Name="runwaytdzlightsign" Mode="In" Type="String" />
+            <Parameter Name="runwaytdzlightAction" Mode="In" Type="String" />
+            <Parameter Name="runwaytdzlightNC" Mode="In" Type="String" />
+            <Parameter Name="retilsandtwylightsign" Mode="In" Type="String" />
+            <Parameter Name="retilsandtwylightAction" Mode="In" Type="String" />
+            <Parameter Name="retilsandtwylightNC" Mode="In" Type="String" />
+            <Parameter Name="runwaysurfacesign" Mode="In" Type="String" />
+            <Parameter Name="runwaysurfaceAction" Mode="In" Type="String" />
+            <Parameter Name="runwaysurfaceNC" Mode="In" Type="String" />
+            <Parameter Name="fodsign" Mode="In" Type="String" />
+            <Parameter Name="fodAction" Mode="In" Type="String" />
+            <Parameter Name="fodNC" Mode="In" Type="String" />
+            <Parameter Name="runwayshouldersign" Mode="In" Type="String" />
+            <Parameter Name="runwayshoulderAction" Mode="In" Type="String" />
+            <Parameter Name="runwayshoulderNC" Mode="In" Type="String" />
+            <Parameter Name="runwaymarkingsign" Mode="In" Type="String" />
+            <Parameter Name="runwaymarkingAction" Mode="In" Type="String" />
+            <Parameter Name="runwaymarkingNC" Mode="In" Type="String" />
+            <Parameter Name="rubberbuildupsign" Mode="In" Type="String" />
+            <Parameter Name="rubberbuildupAction" Mode="In" Type="String" />
+            <Parameter Name="rubberbuildupNC" Mode="In" Type="String" />
+            <Parameter Name="opencablingsign" Mode="In" Type="String" />
+            <Parameter Name="opencablingAction" Mode="In" Type="String" />
+            <Parameter Name="opencablingNC" Mode="In" Type="String" />
+            <Parameter Name="lightingvisibilitysign" Mode="In" Type="String" />
+            <Parameter Name="lightingvisibilityAction" Mode="In" Type="String" />
+            <Parameter Name="lightingvisibilityNC" Mode="In" Type="String" />
+            <Parameter Name="birdsign" Mode="In" Type="String" />
+            <Parameter Name="birdAction" Mode="In" Type="String" />
+            <Parameter Name="birdNC" Mode="In" Type="String" />
+            <Parameter Name="dampwetsign" Mode="In" Type="String" />
+            <Parameter Name="dampwetAction" Mode="In" Type="String" />
+            <Parameter Name="dampwetNC" Mode="In" Type="String" />
+            <Parameter Name="spillagesign" Mode="In" Type="String" />
+            <Parameter Name="spillageAction" Mode="In" Type="String" />
+            <Parameter Name="spillageNC" Mode="In" Type="String" />
+            <Parameter Name="obstructionsign" Mode="In" Type="String" />
+            <Parameter Name="obstructionAction" Mode="In" Type="String" />
+            <Parameter Name="obstructionNC" Mode="In" Type="String" />
+            <Parameter Name="grasslengthsign" Mode="In" Type="String" />
+            <Parameter Name="grasslengthAction" Mode="In" Type="String" />
+            <Parameter Name="grasslengthNC" Mode="In" Type="String" />
+            <Parameter Name="InspectorName" Mode="In" Type="String" />
+            <Parameter Name="InspectorSign" Mode="In" Type="String" />
+            <Parameter Name="otherobservations" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERT_TAXIWAYCHECKLISTDATA">
+            <Parameter Name="FOD" Mode="In" Type="String" />
+            <Parameter Name="FODNC" Mode="In" Type="String" />
+            <Parameter Name="InspectorName" Mode="In" Type="String" />
+            <Parameter Name="InspectorSign" Mode="In" Type="String" />
+            <Parameter Name="Obstruction" Mode="In" Type="String" />
+            <Parameter Name="ObstructionNC" Mode="In" Type="String" />
+            <Parameter Name="airsideworks" Mode="In" Type="String" />
+            <Parameter Name="airsideworksNC" Mode="In" Type="String" />
+            <Parameter Name="birdsign" Mode="In" Type="String" />
+            <Parameter Name="birdsignNC" Mode="In" Type="String" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="drainscleanliness" Mode="In" Type="String" />
+            <Parameter Name="drainscleanlinessNC" Mode="In" Type="String" />
+            <Parameter Name="drainsstructural" Mode="In" Type="String" />
+            <Parameter Name="drainsstructuralNC" Mode="In" Type="String" />
+            <Parameter Name="firehazards" Mode="In" Type="String" />
+            <Parameter Name="firehazardsNC" Mode="In" Type="String" />
+            <Parameter Name="grasslength" Mode="In" Type="String" />
+            <Parameter Name="grasslengthNC" Mode="In" Type="String" />
+            <Parameter Name="inspectiontime" Mode="In" Type="Time" />
+            <Parameter Name="manholesdraincovers" Mode="In" Type="String" />
+            <Parameter Name="manholesdraincoversNC" Mode="In" Type="String" />
+            <Parameter Name="obviouspavementdamage" Mode="In" Type="String" />
+            <Parameter Name="obviouspavementdamageNC" Mode="In" Type="String" />
+            <Parameter Name="opencabling" Mode="In" Type="String" />
+            <Parameter Name="opencablingNC" Mode="In" Type="String" />
+            <Parameter Name="otherobservations" Mode="In" Type="String" />
+            <Parameter Name="runwayguardlights" Mode="In" Type="String" />
+            <Parameter Name="runwayguardlightsNC" Mode="In" Type="String" />
+            <Parameter Name="rwyinspected" Mode="In" Type="String" />
+            <Parameter Name="signslightning" Mode="In" Type="String" />
+            <Parameter Name="signslightningNC" Mode="In" Type="String" />
+            <Parameter Name="spillageNC" Mode="In" Type="String" />
+            <Parameter Name="spillagesign" Mode="In" Type="String" />
+            <Parameter Name="standingwater" Mode="In" Type="String" />
+            <Parameter Name="standingwaterNC" Mode="In" Type="String" />
+            <Parameter Name="taxiwaycentrelinelights" Mode="In" Type="String" />
+            <Parameter Name="taxiwaycentrelinelightsNC" Mode="In" Type="String" />
+            <Parameter Name="taxiwayedgelights" Mode="In" Type="String" />
+            <Parameter Name="taxiwayedgelightsNC" Mode="In" Type="String" />
+            <Parameter Name="taxiwaymarkings" Mode="In" Type="String" />
+            <Parameter Name="taxiwaymarkingsNC" Mode="In" Type="String" />
+            <Parameter Name="taxiwaysurfaces" Mode="In" Type="String" />
+            <Parameter Name="taxiwaysurfacesNC" Mode="In" Type="String" />
+            <Parameter Name="winddirectionalindicator" Mode="In" Type="String" />
+            <Parameter Name="winddirectionalindicatorNC" Mode="In" Type="String" />
+            <Parameter Name="taxiwayedgelightsAction" Mode="In" Type="String" />
+            <Parameter Name="taxiwaycentrelinelightsAction" Mode="In" Type="String" />
+            <Parameter Name="runwayguardaction" Mode="In" Type="String" />
+            <Parameter Name="taxiwaysurfacesAction" Mode="In" Type="String" />
+            <Parameter Name="FODAction" Mode="In" Type="String" />
+            <Parameter Name="taxiwaymarkingsAction" Mode="In" Type="String" />
+            <Parameter Name="obviouspavementdamageAction" Mode="In" Type="String" />
+            <Parameter Name="ObstructionAction" Mode="In" Type="String" />
+            <Parameter Name="manholesdraincoversAction" Mode="In" Type="String" />
+            <Parameter Name="opencablingAction" Mode="In" Type="String" />
+            <Parameter Name="signslightningAction" Mode="In" Type="String" />
+            <Parameter Name="drainscleanlinessAction" Mode="In" Type="String" />
+            <Parameter Name="drainsstructuralAction" Mode="In" Type="String" />
+            <Parameter Name="winddirectionalindicatorAction" Mode="In" Type="String" />
+            <Parameter Name="birdsignAction" Mode="In" Type="String" />
+            <Parameter Name="standingwaterAction" Mode="In" Type="String" />
+            <Parameter Name="airsideworksAction" Mode="In" Type="String" />
+            <Parameter Name="spillageAction" Mode="In" Type="String" />
+            <Parameter Name="firehazardsAction" Mode="In" Type="String" />
+            <Parameter Name="grasslengthAction" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertEmailReport">
+            <Parameter Name="deptid" Mode="In" Type="Int32" />
+            <Parameter Name="priority" Mode="In" Type="Int32" />
+            <Parameter Name="observation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertRunwayImageDetails">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="observationid" Mode="In" Type="Int32" />
+            <Parameter Name="filename" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertTaxiwayImageDetails">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="observationid" Mode="In" Type="Int32" />
+            <Parameter Name="filename" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_REGISTER_USER">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="lastname" Mode="In" Type="String" />
+            <Parameter Name="emailid" Mode="In" Type="String" />
+            <Parameter Name="profileoptionRadio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_TaxiwayAreaMaster" ReturnType="Collection(Airside_Safety_ProjectModel.Sp_TaxiwayAreaMaster_Result)">
+            <Parameter Name="areagroup" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_TaxiwayUpdateActionTaken">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="acceptability0" Mode="In" Type="String" />
+            <Parameter Name="acceptability1" Mode="In" Type="String" />
+            <Parameter Name="acceptability2" Mode="In" Type="String" />
+            <Parameter Name="acceptability3" Mode="In" Type="String" />
+            <Parameter Name="acceptability4" Mode="In" Type="String" />
+            <Parameter Name="acceptability5" Mode="In" Type="String" />
+            <Parameter Name="acceptability6" Mode="In" Type="String" />
+            <Parameter Name="acceptability7" Mode="In" Type="String" />
+            <Parameter Name="acceptability8" Mode="In" Type="String" />
+            <Parameter Name="acceptability9" Mode="In" Type="String" />
+            <Parameter Name="acceptability10" Mode="In" Type="String" />
+            <Parameter Name="acceptability11" Mode="In" Type="String" />
+            <Parameter Name="acceptability12" Mode="In" Type="String" />
+            <Parameter Name="acceptability13" Mode="In" Type="String" />
+            <Parameter Name="acceptability14" Mode="In" Type="String" />
+            <Parameter Name="acceptability15" Mode="In" Type="String" />
+            <Parameter Name="acceptability16" Mode="In" Type="String" />
+            <Parameter Name="acceptability17" Mode="In" Type="String" />
+            <Parameter Name="acceptability18" Mode="In" Type="String" />
+            <Parameter Name="acceptability19" Mode="In" Type="String" />
+            <Parameter Name="ncfiled0" Mode="In" Type="String" />
+            <Parameter Name="ncfiled1" Mode="In" Type="String" />
+            <Parameter Name="ncfiled2" Mode="In" Type="String" />
+            <Parameter Name="ncfiled3" Mode="In" Type="String" />
+            <Parameter Name="ncfiled4" Mode="In" Type="String" />
+            <Parameter Name="ncfiled5" Mode="In" Type="String" />
+            <Parameter Name="ncfiled6" Mode="In" Type="String" />
+            <Parameter Name="ncfiled7" Mode="In" Type="String" />
+            <Parameter Name="ncfiled8" Mode="In" Type="String" />
+            <Parameter Name="ncfiled9" Mode="In" Type="String" />
+            <Parameter Name="ncfiled10" Mode="In" Type="String" />
+            <Parameter Name="ncfiled11" Mode="In" Type="String" />
+            <Parameter Name="ncfiled12" Mode="In" Type="String" />
+            <Parameter Name="ncfiled13" Mode="In" Type="String" />
+            <Parameter Name="ncfiled14" Mode="In" Type="String" />
+            <Parameter Name="ncfiled15" Mode="In" Type="String" />
+            <Parameter Name="ncfiled16" Mode="In" Type="String" />
+            <Parameter Name="ncfiled17" Mode="In" Type="String" />
+            <Parameter Name="ncfiled18" Mode="In" Type="String" />
+            <Parameter Name="ncfiled19" Mode="In" Type="String" />
+            <Parameter Name="actiontaken0" Mode="In" Type="String" />
+            <Parameter Name="actiontaken1" Mode="In" Type="String" />
+            <Parameter Name="actiontaken2" Mode="In" Type="String" />
+            <Parameter Name="actiontaken3" Mode="In" Type="String" />
+            <Parameter Name="actiontaken4" Mode="In" Type="String" />
+            <Parameter Name="actiontaken5" Mode="In" Type="String" />
+            <Parameter Name="actiontaken6" Mode="In" Type="String" />
+            <Parameter Name="actiontaken7" Mode="In" Type="String" />
+            <Parameter Name="actiontaken8" Mode="In" Type="String" />
+            <Parameter Name="actiontaken9" Mode="In" Type="String" />
+            <Parameter Name="actiontaken10" Mode="In" Type="String" />
+            <Parameter Name="actiontaken11" Mode="In" Type="String" />
+            <Parameter Name="actiontaken12" Mode="In" Type="String" />
+            <Parameter Name="actiontaken13" Mode="In" Type="String" />
+            <Parameter Name="actiontaken14" Mode="In" Type="String" />
+            <Parameter Name="actiontaken15" Mode="In" Type="String" />
+            <Parameter Name="actiontaken16" Mode="In" Type="String" />
+            <Parameter Name="actiontaken17" Mode="In" Type="String" />
+            <Parameter Name="actiontaken18" Mode="In" Type="String" />
+            <Parameter Name="actiontaken19" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_APRONCHECKLISTDATA">
+            <Parameter Name="aicid" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="inspectiontime" Mode="In" Type="Time" />
+            <Parameter Name="stand" Mode="In" Type="String" />
+            <Parameter Name="surfcond" Mode="In" Type="String" />
+            <Parameter Name="marking" Mode="In" Type="String" />
+            <Parameter Name="cleaning" Mode="In" Type="String" />
+            <Parameter Name="serviceability" Mode="In" Type="String" />
+            <Parameter Name="actiontaken" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateActionTaken">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="acceptability0" Mode="In" Type="String" />
+            <Parameter Name="acceptability1" Mode="In" Type="String" />
+            <Parameter Name="acceptability2" Mode="In" Type="String" />
+            <Parameter Name="acceptability3" Mode="In" Type="String" />
+            <Parameter Name="acceptability4" Mode="In" Type="String" />
+            <Parameter Name="acceptability5" Mode="In" Type="String" />
+            <Parameter Name="acceptability6" Mode="In" Type="String" />
+            <Parameter Name="acceptability7" Mode="In" Type="String" />
+            <Parameter Name="acceptability8" Mode="In" Type="String" />
+            <Parameter Name="acceptability9" Mode="In" Type="String" />
+            <Parameter Name="acceptability10" Mode="In" Type="String" />
+            <Parameter Name="acceptability11" Mode="In" Type="String" />
+            <Parameter Name="acceptability12" Mode="In" Type="String" />
+            <Parameter Name="acceptability13" Mode="In" Type="String" />
+            <Parameter Name="acceptability14" Mode="In" Type="String" />
+            <Parameter Name="acceptability15" Mode="In" Type="String" />
+            <Parameter Name="acceptability16" Mode="In" Type="String" />
+            <Parameter Name="acceptability17" Mode="In" Type="String" />
+            <Parameter Name="acceptability18" Mode="In" Type="String" />
+            <Parameter Name="acceptability19" Mode="In" Type="String" />
+            <Parameter Name="ncfiled0" Mode="In" Type="String" />
+            <Parameter Name="ncfiled1" Mode="In" Type="String" />
+            <Parameter Name="ncfiled2" Mode="In" Type="String" />
+            <Parameter Name="ncfiled3" Mode="In" Type="String" />
+            <Parameter Name="ncfiled4" Mode="In" Type="String" />
+            <Parameter Name="ncfiled5" Mode="In" Type="String" />
+            <Parameter Name="ncfiled6" Mode="In" Type="String" />
+            <Parameter Name="ncfiled7" Mode="In" Type="String" />
+            <Parameter Name="ncfiled8" Mode="In" Type="String" />
+            <Parameter Name="ncfiled9" Mode="In" Type="String" />
+            <Parameter Name="ncfiled10" Mode="In" Type="String" />
+            <Parameter Name="ncfiled11" Mode="In" Type="String" />
+            <Parameter Name="ncfiled12" Mode="In" Type="String" />
+            <Parameter Name="ncfiled13" Mode="In" Type="String" />
+            <Parameter Name="ncfiled14" Mode="In" Type="String" />
+            <Parameter Name="ncfiled15" Mode="In" Type="String" />
+            <Parameter Name="ncfiled16" Mode="In" Type="String" />
+            <Parameter Name="ncfiled17" Mode="In" Type="String" />
+            <Parameter Name="ncfiled18" Mode="In" Type="String" />
+            <Parameter Name="ncfiled19" Mode="In" Type="String" />
+            <Parameter Name="actiontaken0" Mode="In" Type="String" />
+            <Parameter Name="actiontaken1" Mode="In" Type="String" />
+            <Parameter Name="actiontaken2" Mode="In" Type="String" />
+            <Parameter Name="actiontaken3" Mode="In" Type="String" />
+            <Parameter Name="actiontaken4" Mode="In" Type="String" />
+            <Parameter Name="actiontaken5" Mode="In" Type="String" />
+            <Parameter Name="actiontaken6" Mode="In" Type="String" />
+            <Parameter Name="actiontaken7" Mode="In" Type="String" />
+            <Parameter Name="actiontaken8" Mode="In" Type="String" />
+            <Parameter Name="actiontaken9" Mode="In" Type="String" />
+            <Parameter Name="actiontaken10" Mode="In" Type="String" />
+            <Parameter Name="actiontaken11" Mode="In" Type="String" />
+            <Parameter Name="actiontaken12" Mode="In" Type="String" />
+            <Parameter Name="actiontaken13" Mode="In" Type="String" />
+            <Parameter Name="actiontaken14" Mode="In" Type="String" />
+            <Parameter Name="actiontaken15" Mode="In" Type="String" />
+            <Parameter Name="actiontaken16" Mode="In" Type="String" />
+            <Parameter Name="actiontaken17" Mode="In" Type="String" />
+            <Parameter Name="actiontaken18" Mode="In" Type="String" />
+            <Parameter Name="actiontaken19" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="UpdateApprovalDetails">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="remarks" Mode="In" Type="String" />
+            <Parameter Name="approvalstatus" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateApronChecklistApprovalDetails">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="remarks" Mode="In" Type="String" />
+            <Parameter Name="approvalstatus" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateTaxiwayApprovalDetails">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="remarks" Mode="In" Type="String" />
+            <Parameter Name="approvalstatus" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Get_ApronInspection_Checklist_Report_Result">
+          <Property Type="Int32" Name="AIC_ID" Nullable="false" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="Stand" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Surface_Condition" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Markings" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cleaning" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Serviceability" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ActionTaken" Nullable="true" />
+          <Property Type="String" Name="OfficierName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Other_Observations" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_NewApronChecklists_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_NewChecklists_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_NewTaxiwayChecklists_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_RunwayInspection_Checklist_Report_Result">
+          <Property Type="String" Name="Observations" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="RWY_Inspected" Nullable="true" MaxLength="50" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+          <Property Type="String" Name="Acceptability" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Action_Taken" Nullable="true" />
+          <Property Type="String" Name="NC_Filed_Ref_No" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Department_Name" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Person_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Other_Observations" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_RunwayInspection_Observation_Result">
+          <Property Type="Int32" Name="RIC_ID" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_TaxiwayInspection_Checklist_Report_Result">
+          <Property Type="String" Name="Observations" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="TWY_Inspected" Nullable="true" MaxLength="50" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+          <Property Type="String" Name="Acceptability" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Action_Taken" Nullable="true" />
+          <Property Type="String" Name="NC_Filed_Ref_No" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Department_Name" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Person_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Other_Observations" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GET_USERLOGIN_Result">
+          <Property Type="Int32" Name="UM_I" Nullable="false" />
+          <Property Type="String" Name="UM_FIRST_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="UM_LAST_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="AGM_I" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetApronApprovalTicketList_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetPendingTaxiwayTicketList_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetPendingTicketList_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetRunwayApprovalTicketList_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetTaxiwayApprovalTicketList_Result">
+          <Property Type="DateTime" Name="DATE" Nullable="true" />
+          <Property Type="Time" Name="Inspection_Time" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_AreaGroup_Result">
+          <Property Type="Int32" Name="AG_ID" Nullable="false" />
+          <Property Type="String" Name="Area_Group" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Areas" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="SP_EditUser_Result">
+          <Property Type="Int32" Name="UM_I" Nullable="false" />
+          <Property Type="String" Name="UM_FIRST_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="UM_LAST_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="UM_USER_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="UM_PASSWORD" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="UM_ISACTIVE" Nullable="true" />
+          <Property Type="DateTime" Name="CREATED_DATE" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CREATED_BY" Nullable="true" />
+          <Property Type="Int32" Name="AGM_I" Nullable="true" />
+          <Property Type="String" Name="EMAIL_ID" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="um_login_count" Nullable="true" />
+          <Property Type="DateTime" Name="um_last_login" Nullable="true" Precision="23" />
+          <Property Type="String" Name="um_mobile_number" Nullable="true" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SP_EmailReportDetails_Result">
+          <Property Type="Int32" Name="EmailReportID" Nullable="false" />
+          <Property Type="String" Name="ChecklistObservation" Nullable="true" />
+          <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EscalatedDate" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="PName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="EscalationLevel" Nullable="true" />
+          <Property Type="String" Name="EscalationStatus" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <ComplexType Name="SP_EmailReports_Result">
+          <Property Type="Int32" Name="EmailReportID" Nullable="false" />
+          <Property Type="Int32" Name="DeptID" Nullable="true" />
+          <Property Type="String" Name="ChecklistObservation" Nullable="true" />
+          <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EscalatedDate" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="PName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="EscalationLevel" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_GetDepartments_Result">
+          <Property Type="Int32" Name="Dept_ID" Nullable="false" />
+          <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_GetPriorityList_Result">
+          <Property Type="Int32" Name="PriorityID" Nullable="false" />
+          <Property Type="String" Name="PName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PeriodOfEscalation" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetUsers_Result">
+          <Property Type="Int32" Name="UM_I" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="201" />
+          <Property Type="String" Name="UM_USER_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="EMAIL_ID" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sp_TaxiwayAreaMaster_Result">
+          <Property Type="Int32" Name="AG_ID" Nullable="true" />
+          <Property Type="String" Name="Area_Group" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Taxiway_Areas" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Airside_Safety_ProjectModelStoreContainer" CdmEntityContainer="Airside_Safety_ProjectEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AirsideHOTSpecifics">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AirsideHOTSpecific">
+              <MappingFragment StoreEntitySet="AirsideHOTSpecifics">
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="Specifics" ColumnName="Specifics" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Group_Master">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.App_Group_Master">
+              <MappingFragment StoreEntitySet="App_Group_Master">
+                <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+                <ScalarProperty Name="AGM_GROUP_NAME" ColumnName="AGM_GROUP_NAME" />
+                <ScalarProperty Name="AGM_DESC" ColumnName="AGM_DESC" />
+                <ScalarProperty Name="AGM_ISACTIVE" ColumnName="AGM_ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApronInspectionChecklists">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.ApronInspectionChecklist">
+              <MappingFragment StoreEntitySet="ApronInspectionChecklist">
+                <ScalarProperty Name="AIC_ID" ColumnName="AIC_ID" />
+                <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+                <ScalarProperty Name="Stand" ColumnName="Stand" />
+                <ScalarProperty Name="Surface_Condition" ColumnName="Surface_Condition" />
+                <ScalarProperty Name="Markings" ColumnName="Markings" />
+                <ScalarProperty Name="Cleaning" ColumnName="Cleaning" />
+                <ScalarProperty Name="Serviceability" ColumnName="Serviceability" />
+                <ScalarProperty Name="ActionTaken" ColumnName="ActionTaken" />
+                <ScalarProperty Name="OfficierName" ColumnName="OfficierName" />
+                <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+                <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovalDateTime" ColumnName="ApprovalDateTime" />
+                <ScalarProperty Name="DutyManagerRemarks" ColumnName="DutyManagerRemarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOTWorkSafetyChecklists">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.HOTWorkSafetyChecklist">
+              <MappingFragment StoreEntitySet="HOTWorkSafetyChecklist">
+                <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="PermitNumber" ColumnName="PermitNumber" />
+                <ScalarProperty Name="Agency" ColumnName="Agency" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="OtherObservations" ColumnName="OtherObservations" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="InspectorName" ColumnName="InspectorName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RunwayInspectionChecklists">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.RunwayInspectionChecklist">
+              <MappingFragment StoreEntitySet="RunwayInspectionChecklist">
+                <ScalarProperty Name="R_ID" ColumnName="R_ID" />
+                <ScalarProperty Name="RIC_ID" ColumnName="RIC_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="RWY_Inspected" ColumnName="RWY_Inspected" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+                <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+                <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+                <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+                <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+                <ScalarProperty Name="Approval_Status" ColumnName="Approval_Status" />
+                <ScalarProperty Name="Email_Sent_Count" ColumnName="Email_Sent_Count" />
+                <ScalarProperty Name="DutyManagerRemarks" ColumnName="DutyManagerRemarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RunwayInspectionObservations">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.RunwayInspectionObservation">
+              <MappingFragment StoreEntitySet="RunwayInspectionObservations">
+                <ScalarProperty Name="RIC_ID" ColumnName="RIC_ID" />
+                <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxiwayInspectionChecklists">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TaxiwayInspectionChecklist">
+              <MappingFragment StoreEntitySet="TaxiwayInspectionChecklist">
+                <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+                <ScalarProperty Name="TIC_ID" ColumnName="TIC_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TWY_Inspected" ColumnName="TWY_Inspected" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+                <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+                <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+                <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+                <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+                <ScalarProperty Name="Approval_Status" ColumnName="Approval_Status" />
+                <ScalarProperty Name="Email_Sent_Count" ColumnName="Email_Sent_Count" />
+                <ScalarProperty Name="DutyManagerRemarks" ColumnName="DutyManagerRemarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxiwayInspectionObservations">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TaxiwayInspectionObservation">
+              <MappingFragment StoreEntitySet="TaxiwayInspectionObservations">
+                <ScalarProperty Name="TIC_ID" ColumnName="TIC_ID" />
+                <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ApronAreaMaster">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_ApronAreaMaster">
+              <MappingFragment StoreEntitySet="TBL_ApronAreaMaster">
+                <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+                <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+                <ScalarProperty Name="Apron_Area" ColumnName="Apron_Area" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_AreaGroupMaster">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_AreaGroupMaster">
+              <MappingFragment StoreEntitySet="TBL_AreaGroupMaster">
+                <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+                <ScalarProperty Name="Area_Group" ColumnName="Area_Group" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Departments">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_Departments">
+              <MappingFragment StoreEntitySet="TBL_Departments">
+                <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_EmailReports">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_EmailReports">
+              <MappingFragment StoreEntitySet="TBL_EmailReports">
+                <ScalarProperty Name="EmailReportID" ColumnName="EmailReportID" />
+                <ScalarProperty Name="ChecklistObservation" ColumnName="ChecklistObservation" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="EscalatedDate" ColumnName="EscalatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EscalationLevel" ColumnName="EscalationLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Priority">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_Priority">
+              <MappingFragment StoreEntitySet="TBL_Priority">
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="PeriodOfEscalation" ColumnName="PeriodOfEscalation" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_RunwayImages">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_RunwayImages">
+              <MappingFragment StoreEntitySet="TBL_RunwayImages">
+                <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+                <ScalarProperty Name="R_ID" ColumnName="R_ID" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SPOC">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_SPOC">
+              <MappingFragment StoreEntitySet="TBL_SPOC">
+                <ScalarProperty Name="SPOC_ID" ColumnName="SPOC_ID" />
+                <ScalarProperty Name="SPOC_NAME" ColumnName="SPOC_NAME" />
+                <ScalarProperty Name="SPOC_LEVEL" ColumnName="SPOC_LEVEL" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+                <ScalarProperty Name="SPOC_EmailId" ColumnName="SPOC_EmailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_TaxiwayAreaMaster">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_TaxiwayAreaMaster">
+              <MappingFragment StoreEntitySet="TBL_TaxiwayAreaMaster">
+                <ScalarProperty Name="TA_ID" ColumnName="TA_ID" />
+                <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+                <ScalarProperty Name="Taxiway_Areas" ColumnName="Taxiway_Areas" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_TaxiwayImages">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_TaxiwayImages">
+              <MappingFragment StoreEntitySet="TBL_TaxiwayImages">
+                <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+                <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Master">
+            <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.User_Master">
+              <MappingFragment StoreEntitySet="User_Master">
+                <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+                <ScalarProperty Name="UM_FIRST_NAME" ColumnName="UM_FIRST_NAME" />
+                <ScalarProperty Name="UM_LAST_NAME" ColumnName="UM_LAST_NAME" />
+                <ScalarProperty Name="UM_USER_NAME" ColumnName="UM_USER_NAME" />
+                <ScalarProperty Name="UM_PASSWORD" ColumnName="UM_PASSWORD" />
+                <ScalarProperty Name="UM_ISACTIVE" ColumnName="UM_ISACTIVE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="um_login_count" ColumnName="um_login_count" />
+                <ScalarProperty Name="um_last_login" ColumnName="um_last_login" />
+                <ScalarProperty Name="um_mobile_number" ColumnName="um_mobile_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Airside_Safety_ProjectModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="ApproveApronInspectionChecklist" FunctionName="Airside_Safety_ProjectModel.Store.ApproveApronInspectionChecklist" />
+          <FunctionImportMapping FunctionImportName="ApproveRunwayInspectionChecklist" FunctionName="Airside_Safety_ProjectModel.Store.ApproveRunwayInspectionChecklist" />
+          <FunctionImportMapping FunctionImportName="ApproveTaxiwayInspectionChecklist" FunctionName="Airside_Safety_ProjectModel.Store.ApproveTaxiwayInspectionChecklist" />
+          <FunctionImportMapping FunctionImportName="Get_ApronInspection_Checklist_Report" FunctionName="Airside_Safety_ProjectModel.Store.Get_ApronInspection_Checklist_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_ApronInspection_Checklist_Report_Result">
+                <ScalarProperty Name="AIC_ID" ColumnName="AIC_ID" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Stand" ColumnName="Stand" />
+                <ScalarProperty Name="Surface_Condition" ColumnName="Surface_Condition" />
+                <ScalarProperty Name="Markings" ColumnName="Markings" />
+                <ScalarProperty Name="Cleaning" ColumnName="Cleaning" />
+                <ScalarProperty Name="Serviceability" ColumnName="Serviceability" />
+                <ScalarProperty Name="ActionTaken" ColumnName="ActionTaken" />
+                <ScalarProperty Name="OfficierName" ColumnName="OfficierName" />
+                <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_NewApronChecklists" FunctionName="Airside_Safety_ProjectModel.Store.Get_NewApronChecklists">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_NewApronChecklists_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_NewChecklists" FunctionName="Airside_Safety_ProjectModel.Store.Get_NewChecklists">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_NewChecklists_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_NewTaxiwayChecklists" FunctionName="Airside_Safety_ProjectModel.Store.Get_NewTaxiwayChecklists">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_NewTaxiwayChecklists_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_RunwayInspection_Checklist_Report" FunctionName="Airside_Safety_ProjectModel.Store.Get_RunwayInspection_Checklist_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_RunwayInspection_Checklist_Report_Result">
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="RWY_Inspected" ColumnName="RWY_Inspected" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+                <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+                <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+                <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+                <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_RunwayInspection_Observation" FunctionName="Airside_Safety_ProjectModel.Store.Get_RunwayInspection_Observation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_RunwayInspection_Observation_Result">
+                <ScalarProperty Name="RIC_ID" ColumnName="RIC_ID" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_TaxiwayInspection_Checklist_Report" FunctionName="Airside_Safety_ProjectModel.Store.Get_TaxiwayInspection_Checklist_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_TaxiwayInspection_Checklist_Report_Result">
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TWY_Inspected" ColumnName="TWY_Inspected" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+                <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+                <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+                <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+                <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_USERLOGIN" FunctionName="Airside_Safety_ProjectModel.Store.GET_USERLOGIN">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GET_USERLOGIN_Result">
+                <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+                <ScalarProperty Name="UM_FIRST_NAME" ColumnName="UM_FIRST_NAME" />
+                <ScalarProperty Name="UM_LAST_NAME" ColumnName="UM_LAST_NAME" />
+                <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetApronApprovalTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetApronApprovalTicketList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetApronApprovalTicketList_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPendingApronCheckList" FunctionName="Airside_Safety_ProjectModel.Store.GetPendingApronCheckList" />
+          <FunctionImportMapping FunctionImportName="GetPendingTaxiwayTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetPendingTaxiwayTicketList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetPendingTaxiwayTicketList_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPendingTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetPendingTicketList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetPendingTicketList_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRunwayApprovalTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetRunwayApprovalTicketList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetRunwayApprovalTicketList_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTaxiwayApprovalTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetTaxiwayApprovalTicketList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetTaxiwayApprovalTicketList_Result">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Insert_RunwayInspection_Checklist_Mobile" FunctionName="Airside_Safety_ProjectModel.Store.Insert_RunwayInspection_Checklist_Mobile" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="Sp_AreaGroup" FunctionName="Airside_Safety_ProjectModel.Store.Sp_AreaGroup">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Sp_AreaGroup_Result">
+                <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+                <ScalarProperty Name="Area_Group" ColumnName="Area_Group" />
+                <ScalarProperty Name="Areas" ColumnName="Areas" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ChangeEscalationStatus" FunctionName="Airside_Safety_ProjectModel.Store.SP_ChangeEscalationStatus" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteUser" FunctionName="Airside_Safety_ProjectModel.Store.SP_DeleteUser" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="SP_EditUser" FunctionName="Airside_Safety_ProjectModel.Store.SP_EditUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_EditUser_Result">
+                <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+                <ScalarProperty Name="UM_FIRST_NAME" ColumnName="UM_FIRST_NAME" />
+                <ScalarProperty Name="UM_LAST_NAME" ColumnName="UM_LAST_NAME" />
+                <ScalarProperty Name="UM_USER_NAME" ColumnName="UM_USER_NAME" />
+                <ScalarProperty Name="UM_PASSWORD" ColumnName="UM_PASSWORD" />
+                <ScalarProperty Name="UM_ISACTIVE" ColumnName="UM_ISACTIVE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="um_login_count" ColumnName="um_login_count" />
+                <ScalarProperty Name="um_last_login" ColumnName="um_last_login" />
+                <ScalarProperty Name="um_mobile_number" ColumnName="um_mobile_number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_EmailReportDetails" FunctionName="Airside_Safety_ProjectModel.Store.SP_EmailReportDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_EmailReportDetails_Result">
+                <ScalarProperty Name="EmailReportID" ColumnName="EmailReportID" />
+                <ScalarProperty Name="ChecklistObservation" ColumnName="ChecklistObservation" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="EscalatedDate" ColumnName="EscalatedDate" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="EscalationLevel" ColumnName="EscalationLevel" />
+                <ScalarProperty Name="EscalationStatus" ColumnName="EscalationStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_EmailReports" FunctionName="Airside_Safety_ProjectModel.Store.SP_EmailReports">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_EmailReports_Result">
+                <ScalarProperty Name="EmailReportID" ColumnName="EmailReportID" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="ChecklistObservation" ColumnName="ChecklistObservation" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="EscalatedDate" ColumnName="EscalatedDate" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="EscalationLevel" ColumnName="EscalationLevel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetDepartments" FunctionName="Airside_Safety_ProjectModel.Store.SP_GetDepartments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_GetDepartments_Result">
+                <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetPriorityList" FunctionName="Airside_Safety_ProjectModel.Store.SP_GetPriorityList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_GetPriorityList_Result">
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="PeriodOfEscalation" ColumnName="PeriodOfEscalation" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetUsers" FunctionName="Airside_Safety_ProjectModel.Store.Sp_GetUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Sp_GetUsers_Result">
+                <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UM_USER_NAME" ColumnName="UM_USER_NAME" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Airside_Safety_ProjectModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Airside_Safety_ProjectModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_INSERT_APRONCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_APRONCHECKLISTDATA" />
+          <FunctionImportMapping FunctionImportName="SP_INSERT_APRONCHECKLISTDATA_1" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_APRONCHECKLISTDATA_1" />
+          <FunctionImportMapping FunctionImportName="SP_INSERT_RUNWAYCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_RUNWAYCHECKLISTDATA" />
+          <FunctionImportMapping FunctionImportName="SP_INSERT_TAXIWAYCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_TAXIWAYCHECKLISTDATA" />
+          <FunctionImportMapping FunctionImportName="SP_InsertEmailReport" FunctionName="Airside_Safety_ProjectModel.Store.SP_InsertEmailReport" />
+          <FunctionImportMapping FunctionImportName="SP_InsertRunwayImageDetails" FunctionName="Airside_Safety_ProjectModel.Store.SP_InsertRunwayImageDetails" />
+          <FunctionImportMapping FunctionImportName="SP_InsertTaxiwayImageDetails" FunctionName="Airside_Safety_ProjectModel.Store.SP_InsertTaxiwayImageDetails" />
+          <FunctionImportMapping FunctionImportName="SP_REGISTER_USER" FunctionName="Airside_Safety_ProjectModel.Store.SP_REGISTER_USER" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="Sp_TaxiwayAreaMaster" FunctionName="Airside_Safety_ProjectModel.Store.Sp_TaxiwayAreaMaster">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Sp_TaxiwayAreaMaster_Result">
+                <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+                <ScalarProperty Name="Area_Group" ColumnName="Area_Group" />
+                <ScalarProperty Name="Taxiway_Areas" ColumnName="Taxiway_Areas" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_TaxiwayUpdateActionTaken" FunctionName="Airside_Safety_ProjectModel.Store.SP_TaxiwayUpdateActionTaken" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_APRONCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_UPDATE_APRONCHECKLISTDATA" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateActionTaken" FunctionName="Airside_Safety_ProjectModel.Store.SP_UpdateActionTaken" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Airside_Safety_ProjectModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="UpdateApprovalDetails" FunctionName="Airside_Safety_ProjectModel.Store.UpdateApprovalDetails" />
+          <FunctionImportMapping FunctionImportName="UpdateApronChecklistApprovalDetails" FunctionName="Airside_Safety_ProjectModel.Store.UpdateApronChecklistApprovalDetails" />
+          <FunctionImportMapping FunctionImportName="UpdateTaxiwayApprovalDetails" FunctionName="Airside_Safety_ProjectModel.Store.UpdateTaxiwayApprovalDetails" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

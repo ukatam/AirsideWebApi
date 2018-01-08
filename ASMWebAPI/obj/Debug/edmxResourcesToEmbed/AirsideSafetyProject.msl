@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Airside_Safety_ProjectModelStoreContainer" CdmEntityContainer="Airside_Safety_ProjectEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AirsideHOTSpecifics">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AirsideHOTSpecific">
+        <MappingFragment StoreEntitySet="AirsideHOTSpecifics">
+          <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+          <ScalarProperty Name="Specifics" ColumnName="Specifics" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Group_Master">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.App_Group_Master">
+        <MappingFragment StoreEntitySet="App_Group_Master">
+          <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+          <ScalarProperty Name="AGM_GROUP_NAME" ColumnName="AGM_GROUP_NAME" />
+          <ScalarProperty Name="AGM_DESC" ColumnName="AGM_DESC" />
+          <ScalarProperty Name="AGM_ISACTIVE" ColumnName="AGM_ISACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApronInspectionChecklists">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.ApronInspectionChecklist">
+        <MappingFragment StoreEntitySet="ApronInspectionChecklist">
+          <ScalarProperty Name="AIC_ID" ColumnName="AIC_ID" />
+          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+          <ScalarProperty Name="Stand" ColumnName="Stand" />
+          <ScalarProperty Name="Surface_Condition" ColumnName="Surface_Condition" />
+          <ScalarProperty Name="Markings" ColumnName="Markings" />
+          <ScalarProperty Name="Cleaning" ColumnName="Cleaning" />
+          <ScalarProperty Name="Serviceability" ColumnName="Serviceability" />
+          <ScalarProperty Name="ActionTaken" ColumnName="ActionTaken" />
+          <ScalarProperty Name="OfficierName" ColumnName="OfficierName" />
+          <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovalDateTime" ColumnName="ApprovalDateTime" />
+          <ScalarProperty Name="DutyManagerRemarks" ColumnName="DutyManagerRemarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOTWorkSafetyChecklists">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.HOTWorkSafetyChecklist">
+        <MappingFragment StoreEntitySet="HOTWorkSafetyChecklist">
+          <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+          <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PermitNumber" ColumnName="PermitNumber" />
+          <ScalarProperty Name="Agency" ColumnName="Agency" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="OtherObservations" ColumnName="OtherObservations" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="InspectorName" ColumnName="InspectorName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Createdon" ColumnName="Createdon" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RunwayInspectionChecklists">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.RunwayInspectionChecklist">
+        <MappingFragment StoreEntitySet="RunwayInspectionChecklist">
+          <ScalarProperty Name="R_ID" ColumnName="R_ID" />
+          <ScalarProperty Name="RIC_ID" ColumnName="RIC_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="RWY_Inspected" ColumnName="RWY_Inspected" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+          <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+          <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+          <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+          <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+          <ScalarProperty Name="Approval_Status" ColumnName="Approval_Status" />
+          <ScalarProperty Name="Email_Sent_Count" ColumnName="Email_Sent_Count" />
+          <ScalarProperty Name="DutyManagerRemarks" ColumnName="DutyManagerRemarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RunwayInspectionObservations">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.RunwayInspectionObservation">
+        <MappingFragment StoreEntitySet="RunwayInspectionObservations">
+          <ScalarProperty Name="RIC_ID" ColumnName="RIC_ID" />
+          <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+          <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxiwayInspectionChecklists">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TaxiwayInspectionChecklist">
+        <MappingFragment StoreEntitySet="TaxiwayInspectionChecklist">
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="TIC_ID" ColumnName="TIC_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TWY_Inspected" ColumnName="TWY_Inspected" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+          <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+          <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+          <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+          <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+          <ScalarProperty Name="Approval_Status" ColumnName="Approval_Status" />
+          <ScalarProperty Name="Email_Sent_Count" ColumnName="Email_Sent_Count" />
+          <ScalarProperty Name="DutyManagerRemarks" ColumnName="DutyManagerRemarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxiwayInspectionObservations">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TaxiwayInspectionObservation">
+        <MappingFragment StoreEntitySet="TaxiwayInspectionObservations">
+          <ScalarProperty Name="TIC_ID" ColumnName="TIC_ID" />
+          <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+          <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ApronAreaMaster">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_ApronAreaMaster">
+        <MappingFragment StoreEntitySet="TBL_ApronAreaMaster">
+          <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+          <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+          <ScalarProperty Name="Apron_Area" ColumnName="Apron_Area" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_AreaGroupMaster">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_AreaGroupMaster">
+        <MappingFragment StoreEntitySet="TBL_AreaGroupMaster">
+          <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+          <ScalarProperty Name="Area_Group" ColumnName="Area_Group" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Departments">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_Departments">
+        <MappingFragment StoreEntitySet="TBL_Departments">
+          <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_EmailReports">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_EmailReports">
+        <MappingFragment StoreEntitySet="TBL_EmailReports">
+          <ScalarProperty Name="EmailReportID" ColumnName="EmailReportID" />
+          <ScalarProperty Name="ChecklistObservation" ColumnName="ChecklistObservation" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="EscalatedDate" ColumnName="EscalatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EscalationLevel" ColumnName="EscalationLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Priority">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_Priority">
+        <MappingFragment StoreEntitySet="TBL_Priority">
+          <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+          <ScalarProperty Name="PeriodOfEscalation" ColumnName="PeriodOfEscalation" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_RunwayImages">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_RunwayImages">
+        <MappingFragment StoreEntitySet="TBL_RunwayImages">
+          <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+          <ScalarProperty Name="R_ID" ColumnName="R_ID" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_SPOC">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_SPOC">
+        <MappingFragment StoreEntitySet="TBL_SPOC">
+          <ScalarProperty Name="SPOC_ID" ColumnName="SPOC_ID" />
+          <ScalarProperty Name="SPOC_NAME" ColumnName="SPOC_NAME" />
+          <ScalarProperty Name="SPOC_LEVEL" ColumnName="SPOC_LEVEL" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+          <ScalarProperty Name="SPOC_EmailId" ColumnName="SPOC_EmailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_TaxiwayAreaMaster">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_TaxiwayAreaMaster">
+        <MappingFragment StoreEntitySet="TBL_TaxiwayAreaMaster">
+          <ScalarProperty Name="TA_ID" ColumnName="TA_ID" />
+          <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+          <ScalarProperty Name="Taxiway_Areas" ColumnName="Taxiway_Areas" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_TaxiwayImages">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.TBL_TaxiwayImages">
+        <MappingFragment StoreEntitySet="TBL_TaxiwayImages">
+          <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Master">
+      <EntityTypeMapping TypeName="Airside_Safety_ProjectModel.User_Master">
+        <MappingFragment StoreEntitySet="User_Master">
+          <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+          <ScalarProperty Name="UM_FIRST_NAME" ColumnName="UM_FIRST_NAME" />
+          <ScalarProperty Name="UM_LAST_NAME" ColumnName="UM_LAST_NAME" />
+          <ScalarProperty Name="UM_USER_NAME" ColumnName="UM_USER_NAME" />
+          <ScalarProperty Name="UM_PASSWORD" ColumnName="UM_PASSWORD" />
+          <ScalarProperty Name="UM_ISACTIVE" ColumnName="UM_ISACTIVE" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+          <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+          <ScalarProperty Name="um_login_count" ColumnName="um_login_count" />
+          <ScalarProperty Name="um_last_login" ColumnName="um_last_login" />
+          <ScalarProperty Name="um_mobile_number" ColumnName="um_mobile_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Airside_Safety_ProjectModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="ApproveApronInspectionChecklist" FunctionName="Airside_Safety_ProjectModel.Store.ApproveApronInspectionChecklist" />
+    <FunctionImportMapping FunctionImportName="ApproveRunwayInspectionChecklist" FunctionName="Airside_Safety_ProjectModel.Store.ApproveRunwayInspectionChecklist" />
+    <FunctionImportMapping FunctionImportName="ApproveTaxiwayInspectionChecklist" FunctionName="Airside_Safety_ProjectModel.Store.ApproveTaxiwayInspectionChecklist" />
+    <FunctionImportMapping FunctionImportName="Get_ApronInspection_Checklist_Report" FunctionName="Airside_Safety_ProjectModel.Store.Get_ApronInspection_Checklist_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_ApronInspection_Checklist_Report_Result">
+          <ScalarProperty Name="AIC_ID" ColumnName="AIC_ID" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Stand" ColumnName="Stand" />
+          <ScalarProperty Name="Surface_Condition" ColumnName="Surface_Condition" />
+          <ScalarProperty Name="Markings" ColumnName="Markings" />
+          <ScalarProperty Name="Cleaning" ColumnName="Cleaning" />
+          <ScalarProperty Name="Serviceability" ColumnName="Serviceability" />
+          <ScalarProperty Name="ActionTaken" ColumnName="ActionTaken" />
+          <ScalarProperty Name="OfficierName" ColumnName="OfficierName" />
+          <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_NewApronChecklists" FunctionName="Airside_Safety_ProjectModel.Store.Get_NewApronChecklists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_NewApronChecklists_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_NewChecklists" FunctionName="Airside_Safety_ProjectModel.Store.Get_NewChecklists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_NewChecklists_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_NewTaxiwayChecklists" FunctionName="Airside_Safety_ProjectModel.Store.Get_NewTaxiwayChecklists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_NewTaxiwayChecklists_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_RunwayInspection_Checklist_Report" FunctionName="Airside_Safety_ProjectModel.Store.Get_RunwayInspection_Checklist_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_RunwayInspection_Checklist_Report_Result">
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="RWY_Inspected" ColumnName="RWY_Inspected" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+          <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+          <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+          <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+          <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_RunwayInspection_Observation" FunctionName="Airside_Safety_ProjectModel.Store.Get_RunwayInspection_Observation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_RunwayInspection_Observation_Result">
+          <ScalarProperty Name="RIC_ID" ColumnName="RIC_ID" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_TaxiwayInspection_Checklist_Report" FunctionName="Airside_Safety_ProjectModel.Store.Get_TaxiwayInspection_Checklist_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Get_TaxiwayInspection_Checklist_Report_Result">
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TWY_Inspected" ColumnName="TWY_Inspected" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+          <ScalarProperty Name="Acceptability" ColumnName="Acceptability" />
+          <ScalarProperty Name="Action_Taken" ColumnName="Action_Taken" />
+          <ScalarProperty Name="NC_Filed_Ref_No" ColumnName="NC_Filed_Ref_No" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+          <ScalarProperty Name="Other_Observations" ColumnName="Other_Observations" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_USERLOGIN" FunctionName="Airside_Safety_ProjectModel.Store.GET_USERLOGIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GET_USERLOGIN_Result">
+          <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+          <ScalarProperty Name="UM_FIRST_NAME" ColumnName="UM_FIRST_NAME" />
+          <ScalarProperty Name="UM_LAST_NAME" ColumnName="UM_LAST_NAME" />
+          <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetApronApprovalTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetApronApprovalTicketList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetApronApprovalTicketList_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPendingApronCheckList" FunctionName="Airside_Safety_ProjectModel.Store.GetPendingApronCheckList" />
+    <FunctionImportMapping FunctionImportName="GetPendingTaxiwayTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetPendingTaxiwayTicketList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetPendingTaxiwayTicketList_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPendingTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetPendingTicketList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetPendingTicketList_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetRunwayApprovalTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetRunwayApprovalTicketList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetRunwayApprovalTicketList_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTaxiwayApprovalTicketList" FunctionName="Airside_Safety_ProjectModel.Store.GetTaxiwayApprovalTicketList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.GetTaxiwayApprovalTicketList_Result">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="Inspection_Time" ColumnName="Inspection_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Insert_RunwayInspection_Checklist_Mobile" FunctionName="Airside_Safety_ProjectModel.Store.Insert_RunwayInspection_Checklist_Mobile" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="Sp_AreaGroup" FunctionName="Airside_Safety_ProjectModel.Store.Sp_AreaGroup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Sp_AreaGroup_Result">
+          <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+          <ScalarProperty Name="Area_Group" ColumnName="Area_Group" />
+          <ScalarProperty Name="Areas" ColumnName="Areas" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ChangeEscalationStatus" FunctionName="Airside_Safety_ProjectModel.Store.SP_ChangeEscalationStatus" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="SP_DeleteUser" FunctionName="Airside_Safety_ProjectModel.Store.SP_DeleteUser" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="SP_EditUser" FunctionName="Airside_Safety_ProjectModel.Store.SP_EditUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_EditUser_Result">
+          <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+          <ScalarProperty Name="UM_FIRST_NAME" ColumnName="UM_FIRST_NAME" />
+          <ScalarProperty Name="UM_LAST_NAME" ColumnName="UM_LAST_NAME" />
+          <ScalarProperty Name="UM_USER_NAME" ColumnName="UM_USER_NAME" />
+          <ScalarProperty Name="UM_PASSWORD" ColumnName="UM_PASSWORD" />
+          <ScalarProperty Name="UM_ISACTIVE" ColumnName="UM_ISACTIVE" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AGM_I" ColumnName="AGM_I" />
+          <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+          <ScalarProperty Name="um_login_count" ColumnName="um_login_count" />
+          <ScalarProperty Name="um_last_login" ColumnName="um_last_login" />
+          <ScalarProperty Name="um_mobile_number" ColumnName="um_mobile_number" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_EmailReportDetails" FunctionName="Airside_Safety_ProjectModel.Store.SP_EmailReportDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_EmailReportDetails_Result">
+          <ScalarProperty Name="EmailReportID" ColumnName="EmailReportID" />
+          <ScalarProperty Name="ChecklistObservation" ColumnName="ChecklistObservation" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="EscalatedDate" ColumnName="EscalatedDate" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+          <ScalarProperty Name="EscalationLevel" ColumnName="EscalationLevel" />
+          <ScalarProperty Name="EscalationStatus" ColumnName="EscalationStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_EmailReports" FunctionName="Airside_Safety_ProjectModel.Store.SP_EmailReports">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_EmailReports_Result">
+          <ScalarProperty Name="EmailReportID" ColumnName="EmailReportID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="ChecklistObservation" ColumnName="ChecklistObservation" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="EscalatedDate" ColumnName="EscalatedDate" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+          <ScalarProperty Name="EscalationLevel" ColumnName="EscalationLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetDepartments" FunctionName="Airside_Safety_ProjectModel.Store.SP_GetDepartments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_GetDepartments_Result">
+          <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetPriorityList" FunctionName="Airside_Safety_ProjectModel.Store.SP_GetPriorityList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.SP_GetPriorityList_Result">
+          <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+          <ScalarProperty Name="PeriodOfEscalation" ColumnName="PeriodOfEscalation" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUsers" FunctionName="Airside_Safety_ProjectModel.Store.Sp_GetUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Sp_GetUsers_Result">
+          <ScalarProperty Name="UM_I" ColumnName="UM_I" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UM_USER_NAME" ColumnName="UM_USER_NAME" />
+          <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Airside_Safety_ProjectModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Airside_Safety_ProjectModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_INSERT_APRONCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_APRONCHECKLISTDATA" />
+    <FunctionImportMapping FunctionImportName="SP_INSERT_APRONCHECKLISTDATA_1" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_APRONCHECKLISTDATA_1" />
+    <FunctionImportMapping FunctionImportName="SP_INSERT_RUNWAYCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_RUNWAYCHECKLISTDATA" />
+    <FunctionImportMapping FunctionImportName="SP_INSERT_TAXIWAYCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_INSERT_TAXIWAYCHECKLISTDATA" />
+    <FunctionImportMapping FunctionImportName="SP_InsertEmailReport" FunctionName="Airside_Safety_ProjectModel.Store.SP_InsertEmailReport" />
+    <FunctionImportMapping FunctionImportName="SP_InsertRunwayImageDetails" FunctionName="Airside_Safety_ProjectModel.Store.SP_InsertRunwayImageDetails" />
+    <FunctionImportMapping FunctionImportName="SP_InsertTaxiwayImageDetails" FunctionName="Airside_Safety_ProjectModel.Store.SP_InsertTaxiwayImageDetails" />
+    <FunctionImportMapping FunctionImportName="SP_REGISTER_USER" FunctionName="Airside_Safety_ProjectModel.Store.SP_REGISTER_USER" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Airside_Safety_ProjectModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="Sp_TaxiwayAreaMaster" FunctionName="Airside_Safety_ProjectModel.Store.Sp_TaxiwayAreaMaster">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Airside_Safety_ProjectModel.Sp_TaxiwayAreaMaster_Result">
+          <ScalarProperty Name="AG_ID" ColumnName="AG_ID" />
+          <ScalarProperty Name="Area_Group" ColumnName="Area_Group" />
+          <ScalarProperty Name="Taxiway_Areas" ColumnName="Taxiway_Areas" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_TaxiwayUpdateActionTaken" FunctionName="Airside_Safety_ProjectModel.Store.SP_TaxiwayUpdateActionTaken" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_APRONCHECKLISTDATA" FunctionName="Airside_Safety_ProjectModel.Store.SP_UPDATE_APRONCHECKLISTDATA" />
+    <FunctionImportMapping FunctionImportName="SP_UpdateActionTaken" FunctionName="Airside_Safety_ProjectModel.Store.SP_UpdateActionTaken" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Airside_Safety_ProjectModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="UpdateApprovalDetails" FunctionName="Airside_Safety_ProjectModel.Store.UpdateApprovalDetails" />
+    <FunctionImportMapping FunctionImportName="UpdateApronChecklistApprovalDetails" FunctionName="Airside_Safety_ProjectModel.Store.UpdateApronChecklistApprovalDetails" />
+    <FunctionImportMapping FunctionImportName="UpdateTaxiwayApprovalDetails" FunctionName="Airside_Safety_ProjectModel.Store.UpdateTaxiwayApprovalDetails" />
+  </EntityContainerMapping>
+</Mapping>

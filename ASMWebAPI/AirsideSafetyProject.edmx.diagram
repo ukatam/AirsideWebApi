@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51136d47617141ccaf3a099adb116aa0" Name="Diagram1">
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.AirsideHOTSpecific" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.App_Group_Master" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.ApronInspectionChecklist" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.HOTWorkSafetyChecklist" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.RunwayInspectionChecklist" Width="1.5" PointX="13" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.RunwayInspectionObservation" Width="1.5" PointX="10.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.sysdiagram" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TaxiwayInspectionChecklist" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TaxiwayInspectionObservation" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_ApronAreaMaster" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_AreaGroupMaster" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_Departments" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_EmailReports" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_Priority" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_RunwayImages" Width="1.5" PointX="13.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_SPOC" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_TaxiwayAreaMaster" Width="1.5" PointX="11.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.TBL_TaxiwayImages" Width="1.5" PointX="13.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Airside_Safety_ProjectModel.User_Master" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="Airside_Safety_ProjectModel.FK_User_Master_App_Group_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Airside_Safety_ProjectModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Airside_Safety_ProjectModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Airside_Safety_ProjectModel.FK_RunwayInspectionChecklist_RunwayInspectionChecklist" ManuallyRouted="false" />
+        <AssociationConnector Association="Airside_Safety_ProjectModel.FK_TaxiwayInspectionChecklist_TaxiwayInspectionChecklist" ManuallyRouted="false" />
+        <AssociationConnector Association="Airside_Safety_ProjectModel.FK__TBL_SPOC__Dept_I__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="Airside_Safety_ProjectModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
